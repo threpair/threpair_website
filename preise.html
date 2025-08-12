@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Preise – TH Repair</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="main-nav">
+        <a class="brand" href="index.html"><img src="th.jpeg" alt="TH Repair Logo" class="logo-img" /><span>TH Repair</span></a>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="navmenu">☰</button>
+        <ul id="navmenu" class="nav-links">
+          <li><a href="preise.html" aria-current="page">Preise</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="garantie.html">Garantie</a></li>
+          <li><a href="rechtliches.html">Impressum & Datenschutz</a></li>
+          <li><a href="index.html#contact" class="btn btn-primary">Termin</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container pricing">
+    <h1 class="page-title">📋 Preise (ab Preise)</h1>
+    <p class="muted">Wähle Marke → Modell → Reparatur. Alle Preise sind **ab‑Preise** und können je nach Zustand variieren.</p>
+
+    <div class="selector-grid">
+      <label>
+        <span>Marke</span>
+        <select id="brandSelect"><option value="">– bitte wählen –</option></select>
+      </label>
+      <label>
+        <span>Modell</span>
+        <select id="modelSelect" disabled><option value="">– zuerst Marke wählen –</option></select>
+      </label>
+      <label>
+        <span>Reparatur</span>
+        <select id="serviceSelect" disabled><option value="">– zuerst Modell wählen –</option></select>
+      </label>
+    </div>
+
+    <div class="price-card" id="priceCard" hidden>
+      <div>
+        <h2 id="selTitle">Auswahl</h2>
+        <p class="muted" id="selHint">Preisangabe folgt.</p>
+      </div>
+      <div class="price">
+        <span id="priceValue">–</span>
+      </div>
+    </div>
+
+    <div class="actions">
+      <a id="waButton" class="btn btn-primary" href="#" target="_blank" rel="noopener" hidden>📲 WhatsApp Anfrage senden</a>
+    </div>
+
+    <h2 class="table-title">Alle Optionen für das gewählte Modell</h2>
+    <div class="table-wrap">
+      <table class="price-table" id="priceTable" aria-describedby="tableCaption">
+        <caption id="tableCaption" class="sr-only">Preisliste für gewähltes Modell</caption>
+        <thead><tr><th>Reparatur</th><th>ab Preis</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <p class="muted small">Nicht gelistete Reparaturen: <strong>auf Anfrage</strong>. Schreib mir per WhatsApp – häufig kann ich helfen.</p>
+  </main>
+
+  <footer>
+    <div class="container"><p>© <span id="year"></span> TH Repair · <a href="rechtliches.html">Impressum & Datenschutz</a></p></div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
