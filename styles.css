@@ -1,6 +1,7 @@
-/* Minimales, responsives Grundgerüst */
+/* Minimal, responsiv, mit professionellen Micro-Animationen */
 :root{
-  --bg:#ffffff; --fg:#0f172a; --muted:#64748b; --primary:#0ea5e9; --whatsapp:#10b981; --card:#f8fafc; --border:#e2e8f0;
+  --bg:#ffffff; --fg:#0f172a; --muted:#64748b; --primary:#0ea5e9; --whatsapp:#10b981;
+  --card:#f8fafc; --border:#e2e8f0;
 }
 @media (prefers-color-scheme:dark){
   :root{ --bg:#0b1220; --fg:#e5e7eb; --muted:#94a3b8; --primary:#38bdf8; --card:#111827; --border:#1f2937; }
@@ -20,7 +21,7 @@ img,svg,video,canvas{max-width:100%;height:auto;display:block}
 .site-header{position:sticky;top:0;background:linear-gradient(135deg,#0b3a80,#2563eb);color:#fff;box-shadow:0 6px 24px rgba(0,0,0,.08);z-index:50}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .brand{display:inline-flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:700}
-.logo{height:40px;width:auto;border-radius:8px}
+.logo{height:40px;width:auto;border-radius:8px;display:block;filter:drop-shadow(0 1px 1px rgba(0,0,0,.25))}
 .nav-links{display:flex;gap:14px;list-style:none;margin:0;padding:0}
 .nav-links a{color:#fff;text-decoration:none;opacity:.95}
 .nav-links a:hover,[aria-current="page"]{text-decoration:underline;opacity:1}
@@ -56,8 +57,23 @@ img,svg,video,canvas{max-width:100%;height:auto;display:block}
 .site-footer{border-top:1px solid var(--border);margin-top:24px}
 .site-footer a{color:inherit}
 
-/* Buttons */
-.btn{display:inline-block;padding:10px 16px;border-radius:999px;border:2px solid transparent;background:#e5e7eb;color:#111;text-decoration:none;font-weight:600}
-.btn:hover{filter:brightness(0.98)}
+/* Buttons + Micro-Hover */
+.btn{display:inline-block;padding:10px 16px;border-radius:999px;border:2px solid transparent;background:#e5e7eb;color:#111;text-decoration:none;font-weight:600;
+     transition:transform .15s ease, box-shadow .15s ease}
+.btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,0,0,.08)}
 .btn-primary{background:var(--whatsapp);color:#fff}
 .btn-primary:hover{filter:none;background:#059669}
+
+/* Reveal Animation (dezent) */
+.reveal{opacity:0;transform:translateY(12px);transition:opacity .45s ease,transform .45s ease}
+.reveal.is-visible{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+}
+
+/* Falls du Slider-Bilder nutzt: Bildausschnitt feinjustieren */
+.carousel-slide img{object-fit:cover;object-position:center;width:100%;height:auto}
+.pos-left{object-position:30% 50%}
+.pos-right{object-position:70% 50%}
+.pos-top{object-position:50% 20%}
+.pos-bot{object-position:50% 80%}

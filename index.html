@@ -11,10 +11,11 @@
     <div class="container">
       <nav class="nav">
         <a class="brand" href="index.html">
-          <img src="th.jpeg" alt="TH Repair Logo" class="logo" />
+          <img class="logo" src="th.jpeg" alt="TH Repair Logo"
+               onerror="this.onerror=null;this.src='bilder/th.jpeg';">
           <span>TH Repair</span>
         </a>
-        <button class="nav-toggle" aria-expanded="false" aria-controls="navmenu">☰</button>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="navmenu" aria-label="Menü öffnen">☰</button>
         <ul id="navmenu" class="nav-links">
           <li><a href="#leistungen">Leistungen</a></li>
           <li><a href="#preise">Preise</a></li>
@@ -27,24 +28,25 @@
 
   <main>
     <!-- Hero -->
-    <section class="hero">
+    <section class="hero reveal">
       <div class="container hero-grid">
         <div>
           <h1>Dein Handy in besten Händen</h1>
-          <p class="lead">Schnelle, faire Reparaturen für iPhone, Samsung, Huawei & Co. Termine nur nach Vereinbarung.</p>
+          <p class="lead">Schnelle, faire Reparaturen für iPhone, Samsung, Huawei &amp; Co. Termine nur nach Vereinbarung.</p>
           <div class="actions">
             <a class="btn btn-primary" href="https://wa.me/491601845755" target="_blank" rel="noopener">📲 WhatsApp</a>
             <a class="btn" href="tel:+491601845755">📞 0160 184 57 55</a>
           </div>
         </div>
         <div class="hero-media">
-          <img src="bilder/Tjerk.jpeg" alt="Inhaber Tjerk Heinenbernd" />
+          <!-- Justierung des Bildausschnitts bei Bedarf per pos-* Klasse -->
+          <img src="bilder/Tjerk.jpeg" alt="Inhaber Tjerk Heinenbernd" class="pos-left">
         </div>
       </div>
     </section>
 
     <!-- Leistungen -->
-    <section id="leistungen" class="section">
+    <section id="leistungen" class="section reveal">
       <div class="container">
         <h2 class="section-title">Leistungen</h2>
         <div class="cards">
@@ -56,40 +58,38 @@
       </div>
     </section>
 
-    <!-- Preise (Ab-Preise, minimal) -->
-    <section id="preise" class="section">
+    <!-- Ab-Preise -->
+    <section id="preise" class="section reveal">
       <div class="container">
         <h2 class="section-title">Ab‑Preise (Beispiele)</h2>
         <div class="price-grid">
           <div class="price-item"><span>iPhone 11 – Display A</span><strong>ab 159 €</strong></div>
           <div class="price-item"><span>iPhone 12 – Akku</span><strong>ab 69 €</strong></div>
           <div class="price-item"><span>Galaxy S20 – Display A</span><strong>ab 199 €</strong></div>
-          <div class="price-item muted">Weitere Modelle & Reparaturen: auf Anfrage</div>
+          <div class="price-item muted">Weitere Modelle &amp; Reparaturen: auf Anfrage</div>
         </div>
         <p class="muted small">Preise variieren je nach Zustand/Variante. Frag kurz per WhatsApp – ich nenne dir den genauen Preis.</p>
       </div>
     </section>
 
     <!-- Kontakt -->
-    <section id="kontakt" class="section">
+    <section id="kontakt" class="section reveal">
       <div class="container">
-        <h2 class="section-title">Kontakt & Termin</h2>
+        <h2 class="section-title">Kontakt &amp; Termin</h2>
         <p>Termine nur nach Vereinbarung. Ohne Termin ist ein Besuch nicht möglich.</p>
         <div class="contact-box">
           <a class="btn btn-primary" href="https://wa.me/491601845755" target="_blank" rel="noopener">WhatsApp schreiben</a>
           <a class="btn" href="mailto:info@threpair.de">info@threpair.de</a>
           <a class="btn" href="tel:+491601845755">0160 184 57 55</a>
         </div>
-        <address class="muted small">
-          Tjerk Heinenbernd · Röringhoff 11 · 48691 Vreden
-        </address>
+        <address class="muted small">Tjerk Heinenbernd · Röringhoff 11 · 48691 Vreden</address>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p>© <span id="year"></span> TH Repair · <a href="rechtliches.html">Impressum & Datenschutz</a></p>
+      <p>© <span id="year"></span> TH Repair · <a href="rechtliches.html">Impressum &amp; Datenschutz</a></p>
     </div>
   </footer>
 
