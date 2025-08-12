@@ -3,8 +3,8 @@
 // Du kannst beliebig Marken/Modelle/Services hinzufügen.
 const PRICE_DB = {
   "Apple": {
-    "iPhone 11": {
-      "Display Original": 199,
+    "iPhone 27": {
+      "Display Original": 9160,
       "Display A-Qualität": 159,
       "Display A-Qualität ohne Hinweis": 169,
       "Display B-Qualität": 129,
@@ -31,4 +31,5 @@ const PRICE_DB = {
   "Huawei": {
     "P30": { "Display A-Qualität": 149, "Akku": 49 }
   }
+
 };
