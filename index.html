@@ -1,126 +1,96 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TH Repair – Dein Handy in besten Händen</title>
+  <title>TH Repair – Handyreparatur in Vreden</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Header / Nav -->
   <header class="site-header">
     <div class="container">
-      <nav class="main-nav">
-        <a class="brand" href="index.html" aria-label="TH Repair Startseite">
-          <img src="th.jpeg" alt="TH Repair Logo" class="logo-img" />
+      <nav class="nav">
+        <a class="brand" href="index.html">
+          <img src="th.jpeg" alt="TH Repair Logo" class="logo" />
           <span>TH Repair</span>
         </a>
         <button class="nav-toggle" aria-expanded="false" aria-controls="navmenu">☰</button>
         <ul id="navmenu" class="nav-links">
-          <li><a href="preise.html">Preise</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-          <li><a href="garantie.html">Garantie</a></li>
-          <li><a href="rechtliches.html">Impressum & Datenschutz</a></li>
-          <li><a href="#contact" class="btn btn-primary">Termin</a></li>
+          <li><a href="#leistungen">Leistungen</a></li>
+          <li><a href="#preise">Preise</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+          <li><a href="rechtliches.html">Rechtliches</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-text">
-          <div class="trust-badge"><span>✓</span><span>Mehrjährige Erfahrung</span></div>
-          <div class="trust-badge"><span>✓</span><span>Zuverlässig</span></div>
-          <div class="trust-badge"><span>✓</span><span>Hilfsbereit</span></div>
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
           <h1>Dein Handy in besten Händen</h1>
-          <p>Professionelle Reparaturen für Smartphones &amp; Tablets mit persönlicher Beratung und fairen Preisen</p>
-          <a href="#contact" class="cta-button">Jetzt Termin vereinbaren</a>
-        </div>
-        <div class="hero-image">
-          <img src="./bilder/Tjerk.jpeg" alt="TH - Inhaber von TH Repair" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Leistungen (deine bestehende Sektion) -->
-  <section class="services">
-    <div class="container">
-      <h2 class="section-title">✅ Unsere Leistungen</h2>
-      <div class="service-grid">
-        <div class="service-card"><span class="service-icon">📱</span><h3>Smartphone-Reparatur</h3><p>Display, Akku, Ladebuchse, Kamera und mehr für Apple, Samsung, Huawei, Xiaomi</p></div>
-        <div class="service-card"><span class="service-icon">🛍️</span><h3>Geräteverkauf</h3><p>Neugeräte und geprüfte Refurbished-Geräte zu fairen Preisen</p></div>
-        <div class="service-card"><span class="service-icon">🎯</span><h3>Zubehör & Ersatzteile</h3><p>Kabel, Hüllen, Schutzfolien und mehr – alles fürs Gerät</p></div>
-        <div class="service-card"><span class="service-icon">💬</span><h3>Persönliche Beratung</h3><p>Ehrliche Einschätzung und individuelle Lösungen</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Über mich + Carousel (wie gehabt) -->
-  <section class="about">
-    <div class="container">
-      <h2 class="section-title">👨‍🔧 Über TH Repair</h2>
-      <div class="about-content">
-        <div class="carousel-container">
-          <div class="carousel-track" id="carouselTrack">
-            <div class="carousel-slide">
-              <img src="bilder/Tjerk.jpeg" alt="TH - Inhaber von TH Repair" class="slide-bg-1" />
-              <div class="carousel-caption"><h4>Tjerk – Ihr Experte</h4><p>Mit Leidenschaft & Präzision</p></div>
-            </div>
-            <div class="carousel-slide">
-              <img src="bilder/Image1.jpeg" alt="Werkstatt" class="slide-bg-2" />
-              <div class="carousel-caption"><h4>Professionelle Werkstatt</h4><p>Moderne Ausstattung</p></div>
-            </div>
-            <div class="carousel-slide">
-              <img src="bilder/Image2.jpg" alt="Reparaturarbeit" class="slide-bg-3" />
-              <div class="carousel-caption"><h4>Präzise Arbeit</h4><p>Mit höchster Sorgfalt</p></div>
-            </div>
-            <div class="carousel-slide">
-              <img src="bilder/Image3.avif" alt="Reparierte Geräte" class="slide-bg-4" />
-              <div class="carousel-caption"><h4>Alle Marken willkommen</h4><p>Apple, Samsung, Huawei, Xiaomi u. m.</p></div>
-            </div>
-          </div>
-          <div class="carousel-nav">
-            <button type="button" class="carousel-btn" data-dir="-1">‹</button>
-            <button type="button" class="carousel-btn" data-dir="1">›</button>
+          <p class="lead">Schnelle, faire Reparaturen für iPhone, Samsung, Huawei & Co. Termine nur nach Vereinbarung.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://wa.me/491601845755" target="_blank" rel="noopener">📲 WhatsApp</a>
+            <a class="btn" href="tel:+491601845755">📞 0160 184 57 55</a>
           </div>
         </div>
-        <div class="carousel-indicators" id="indicators">
-          <span class="indicator active" data-go="0"></span>
-          <span class="indicator" data-go="1"></span>
-          <span class="indicator" data-go="2"></span>
-          <span class="indicator" data-go="3"></span>
-        </div>
-
-        <div class="about-box">
-          <h3>Wer steckt dahinter?</h3>
-          <p>Ich bin Tjerk Heinenbernd, leidenschaftlicher Techniker mit mehrjähriger Erfahrung in der Handyreparatur. Mit Präzision, Verlässlichkeit und Hands‑on‑Mentalität kümmere ich mich um dein Gerät.</p>
-          <div class="highlight-box"><p>⚠️ Wichtig: Termine nur nach Vereinbarung – damit es keine Wartezeiten gibt.</p></div>
-          <h3 class="promise-heading">🔒 Mein Versprechen</h3>
-          <p>✓ Faire Preise ohne versteckte Kosten<br />✓ Geprüfte Ersatzteile<br />✓ Ehrliche Einschätzung<br />✓ Garantie auf alle Arbeiten</p>
+        <div class="hero-media">
+          <img src="bilder/Tjerk.jpeg" alt="Inhaber Tjerk Heinenbernd" />
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Kontakt / Termin -->
-  <section class="contact" id="contact">
+    <!-- Leistungen -->
+    <section id="leistungen" class="section">
+      <div class="container">
+        <h2 class="section-title">Leistungen</h2>
+        <div class="cards">
+          <article class="card"><h3>Display</h3><p>Original / A‑ / B‑Qualität</p></article>
+          <article class="card"><h3>Akku</h3><p>Tausch inkl. Prüfung</p></article>
+          <article class="card"><h3>Ladebuchse</h3><p>Reinigung oder Ersatz</p></article>
+          <article class="card"><h3>Weitere</h3><p>Rückseite, Kamera u. m. – auf Anfrage</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Preise (Ab-Preise, minimal) -->
+    <section id="preise" class="section">
+      <div class="container">
+        <h2 class="section-title">Ab‑Preise (Beispiele)</h2>
+        <div class="price-grid">
+          <div class="price-item"><span>iPhone 11 – Display A</span><strong>ab 159 €</strong></div>
+          <div class="price-item"><span>iPhone 12 – Akku</span><strong>ab 69 €</strong></div>
+          <div class="price-item"><span>Galaxy S20 – Display A</span><strong>ab 199 €</strong></div>
+          <div class="price-item muted">Weitere Modelle & Reparaturen: auf Anfrage</div>
+        </div>
+        <p class="muted small">Preise variieren je nach Zustand/Variante. Frag kurz per WhatsApp – ich nenne dir den genauen Preis.</p>
+      </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section id="kontakt" class="section">
+      <div class="container">
+        <h2 class="section-title">Kontakt & Termin</h2>
+        <p>Termine nur nach Vereinbarung. Ohne Termin ist ein Besuch nicht möglich.</p>
+        <div class="contact-box">
+          <a class="btn btn-primary" href="https://wa.me/491601845755" target="_blank" rel="noopener">WhatsApp schreiben</a>
+          <a class="btn" href="mailto:info@threpair.de">info@threpair.de</a>
+          <a class="btn" href="tel:+491601845755">0160 184 57 55</a>
+        </div>
+        <address class="muted small">
+          Tjerk Heinenbernd · Röringhoff 11 · 48691 Vreden
+        </address>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
     <div class="container">
-      <h2>📅 Jetzt Termin vereinbaren</h2>
-      <p class="contact-subheading">Am schnellsten erreichst du mich über WhatsApp</p>
-      <div class="contact-buttons">
-        <a href="https://wa.me/491601845755" class="whatsapp-button">📲 WhatsApp schreiben</a>
-        <a href="https://www.kleinanzeigen.de/s-bestandsliste.html?userId=137900326" class="secondary-button">🛍️ Kleinanzeigen</a>
-      </div>
+      <p>© <span id="year"></span> TH Repair · <a href="rechtliches.html">Impressum & Datenschutz</a></p>
     </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container"><p>© <span id="year"></span> TH Repair · <a href="rechtliches.html">Impressum & Datenschutz</a></p></div>
   </footer>
 
   <script src="script.js"></script>
