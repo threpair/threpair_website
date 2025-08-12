@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TH Repair - Dein Handy in besten Händen</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">🔧</div>
+                    <span>TH Repair</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="trust-badge">
+                        <span>✓</span>
+                        <span>Mehrjährige Erfahrung</span>
+                    </div>
+                    <div class="trust-badge">
+                        <span>✓</span>
+                        <span>Zuverlässig</span>
+                    </div>
+                    <div class="trust-badge">
+                        <span>✓</span>
+                        <span>Hilfsbereit</span>
+                    </div>
+                    <h1>Dein Handy in besten Händen</h1>
+                    <p>Professionelle Reparaturen für Smartphones &amp; Tablets mit persönlicher Beratung und fairen Preisen</p>
+                    <a href="#contact" class="cta-button">Jetzt Termin vereinbaren</a>
+                </div>
+                <div class="hero-image">
+                    <img src="./bilder/Tjerk.jpeg" alt="TH - Inhaber von TH Repair">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title">✅ Unsere Leistungen</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <span class="service-icon">📱</span>
+                    <h3>Smartphone-Reparatur</h3>
+                    <p>Display, Akku, Ladebuchse, Kamera und mehr für Apple, Samsung, Huawei, Xiaomi</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">🛍️</span>
+                    <h3>Geräteverkauf</h3>
+                    <p>Neugeräte und geprüfte Refurbished-Geräte zu fairen Preisen</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">🎯</span>
+                    <h3>Zubehör &amp; Ersatzteile</h3>
+                    <p>Kabel, Hüllen, Schutzfolien und mehr - alles für dein Gerät</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">💬</span>
+                    <h3>Persönliche Beratung</h3>
+                    <p>Ehrliche Einschätzung und individuelle Lösungen für dein Gerät</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <h2 class="section-title">👨‍🔧 Über TH Repair</h2>
+            <div class="about-content">
+                <!-- Image Carousel -->
+                <div class="carousel-container">
+                    <div class="carousel-track" id="carouselTrack">
+                        <div class="carousel-slide">
+                            <img src="bilder/Tjerk.jpeg" alt="TH - Inhaber von TH Repair" class="slide-bg-1">
+                            <div class="carousel-caption">
+                                <h4>Tjerk - Ihr Experte für Handyreparaturen</h4>
+                                <p>Mit Leidenschaft und Präzision für Ihr Gerät</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="bilder/Image1.jpeg" alt="Werkstatt" class="slide-bg-2">
+                            <div class="carousel-caption">
+                                <h4>Professionelle Werkstatt</h4>
+                                <p>Moderne Ausstattung für beste Ergebnisse</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="bilder/Image2.jpg" alt="Reparaturarbeit" class="slide-bg-3">
+                            <div class="carousel-caption">
+                                <h4>Präzise Arbeit</h4>
+                                <p>Jede Reparatur mit höchster Sorgfalt</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="bilder/Image3.avif" alt="Reparierte Geräte" class="slide-bg-4">
+                            <div class="carousel-caption">
+                                <h4>Alle Marken willkommen</h4>
+                                <p>Apple, Samsung, Huawei, Xiaomi und mehr</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-nav">
+                        <button type="button" class="carousel-btn" onclick="moveCarousel(-1)">‹</button>
+                        <button type="button" class="carousel-btn" onclick="moveCarousel(1)">›</button>
+                    </div>
+                </div>
+                <div class="carousel-indicators" id="indicators">
+                    <span class="indicator active" onclick="goToSlide(0)"></span>
+                    <span class="indicator" onclick="goToSlide(1)"></span>
+                    <span class="indicator" onclick="goToSlide(2)"></span>
+                    <span class="indicator" onclick="goToSlide(3)"></span>
+                </div>
+
+                <div class="about-box">
+                    <h3>Wer steckt dahinter?</h3>
+                    <p>Ich bin TH, leidenschaftlicher Techniker mit mehrjähriger Erfahrung in der Handyreparatur. Mit voller Präzision, Verlässlichkeit und Hands-on-Mentalität kümmere ich mich um dein Gerät.</p>
+                    <div class="highlight-box">
+                        <p>⚠️ Wichtig: Ich arbeite ausschließlich mit Terminen. So kann ich dir den bestmöglichen Service ohne Wartezeit bieten.</p>
+                    </div>
+                    <h3 class="promise-heading">🔒 Mein Versprechen</h3>
+                    <p>✓ Faire Preise ohne versteckte Kosten<br>
+                    ✓ Nur geprüfte Ersatzteile<br>
+                    ✓ Ehrliche Einschätzung zur Reparatur<br>
+                    ✓ Garantie auf alle Arbeiten</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>📅 Jetzt Termin vereinbaren</h2>
+            <p class="contact-subheading">Am schnellsten erreichst du mich über WhatsApp</p>
+            <div class="contact-buttons">
+                <a href="https://wa.me/491601845755" class="whatsapp-button">
+                    📲 WhatsApp Schreiben!
+                </a>
+                <a href="https://www.kleinanzeigen.de/s-bestandsliste.html?userId=137900326" class="secondary-button">
+                    🛍️ Kleinanzeigen
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 TH Repair - Alle Rechte vorbehalten</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
