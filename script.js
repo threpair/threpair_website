@@ -1,109 +1,133 @@
-// Carousel functionality
-let currentSlide = 0;
-const slides = document.querySelectorAll('.carousel-slide');
-const totalSlides = slides.length;
-const track = document.getElementById('carouselTrack');
-const indicators = document.querySelectorAll('.indicator');
+// ——— Utilities ———
+function $(sel, root=document){ return root.querySelector(sel); }
+function $all(sel, root=document){ return Array.from(root.querySelectorAll(sel)); }
 
-// Update carousel position and indicators
-function updateCarousel() {
-    track.style.transform = `translateX(-${currentSlide * 100}%)`;
-    
-    // Update indicators
-    indicators.forEach((indicator, index) => {
-        if (index === currentSlide) {
-            indicator.classList.add('active');
-        } else {
-            indicator.classList.remove('active');
-        }
+// Mobile Nav
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = $('.nav-toggle');
+  const menu = $('#navmenu');
+  if(toggle && menu){
+    toggle.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
     });
-}
+  }
+});
 
-// Move carousel in specified direction
-function moveCarousel(direction) {
-    currentSlide += direction;
-    
-    if (currentSlide < 0) {
-        currentSlide = totalSlides - 1;
-    } else if (currentSlide >= totalSlides) {
-        currentSlide = 0;
+// Footer year
+const yEl = document.getElementById('year');
+if (yEl) yEl.textContent = new Date().getFullYear();
+
+// ——— Carousel (nur auf Startseite vorhanden) ———
+(function(){
+  const track = document.getElementById('carouselTrack');
+  const container = document.querySelector('.carousel-container');
+  if(!track || !container) return; // nicht vorhanden → überspringen
+
+  let current = 0;
+  const slides = $all('.carousel-slide', track);
+  const indicators = $all('#indicators .indicator');
+
+  function update(){
+    track.style.transform = `translateX(-${current * 100}%)`;
+    indicators.forEach((dot,i)=> dot.classList.toggle('active', i===current));
+  }
+  function move(dir){ current = (current + dir + slides.length) % slides.length; update(); }
+  update();
+
+  // Buttons
+  $all('.carousel-btn').forEach(btn => btn.addEventListener('click', () => move(parseInt(btn.dataset.dir,10))));
+  // Dots
+  indicators.forEach(dot => dot.addEventListener('click', () => { current = parseInt(dot.dataset.go,10); update(); }));
+
+  // Auto-play
+  let timer = setInterval(()=>move(1), 5000);
+  container.addEventListener('mouseenter', ()=> clearInterval(timer));
+  container.addEventListener('mouseleave', ()=> timer = setInterval(()=>move(1), 5000));
+
+  // Swipe
+  let sx=0, ex=0;
+  container.addEventListener('touchstart', e=> sx = e.changedTouches[0].screenX);
+  container.addEventListener('touchend', e=> { ex = e.changedTouches[0].screenX; if(ex < sx-50) move(1); if(ex > sx+50) move(-1); });
+})();
+
+// ——— Preisfinder (nur auf preise.html) ———
+(function(){
+  const brandSel = document.getElementById('brandSelect');
+  const modelSel = document.getElementById('modelSelect');
+  const servSel  = document.getElementById('serviceSelect');
+  const priceCard = document.getElementById('priceCard');
+  const priceValue = document.getElementById('priceValue');
+  const selTitle = document.getElementById('selTitle');
+  const selHint = document.getElementById('selHint');
+  const table = document.getElementById('priceTable');
+  const waBtn = document.getElementById('waButton');
+
+  if(!brandSel || !table) return; // Seite ist nicht die Preisseite
+
+  // 1) Marke laden
+  const brands = Object.keys(PRICE_DB).sort();
+  brands.forEach(b => brandSel.append(new Option(b, b)));
+
+  brandSel.addEventListener('change', () => {
+    modelSel.innerHTML = '<option value="">– bitte wählen –</option>';
+    servSel.innerHTML = '<option value="">– bitte wählen –</option>';
+    modelSel.disabled = !brandSel.value;
+    servSel.disabled = true;
+    priceCard.hidden = true; waBtn.hidden = true;
+
+    if(!brandSel.value) return;
+    const models = Object.keys(PRICE_DB[brandSel.value]).sort();
+    models.forEach(m => modelSel.append(new Option(m, m)));
+  });
+
+  // 2) Modell laden
+  modelSel.addEventListener('change', () => {
+    servSel.innerHTML = '<option value="">– bitte wählen –</option>';
+    servSel.disabled = !modelSel.value;
+    priceCard.hidden = true; waBtn.hidden = true;
+
+    if(!modelSel.value) return;
+
+    // Tabelle aufbauen
+    const map = PRICE_DB[brandSel.value][modelSel.value];
+    buildTable(map);
+
+    // Services befüllen
+    Object.keys(map).forEach(s => servSel.append(new Option(s, s)));
+  });
+
+  // 3) Service → Preis anzeigen
+  servSel.addEventListener('change', () => {
+    if(!servSel.value) { priceCard.hidden = true; waBtn.hidden = true; return; }
+    const price = PRICE_DB[brandSel.value][modelSel.value][servSel.value];
+    selTitle.textContent = `${brandSel.value} · ${modelSel.value} · ${servSel.value}`;
+    if(price === null || typeof price === 'undefined'){
+      priceValue.textContent = 'auf Anfrage';
+      selHint.textContent = 'Schreib mir kurz – ich nenne dir einen Preis.';
+    } else {
+      priceValue.textContent = `ab ${price.toFixed(0)} €`;
+      selHint.textContent = 'Preis je nach Zustand/Variante – inkl. Teile & Arbeit.';
     }
-    
-    updateCarousel();
-}
+    priceCard.hidden = false;
 
-// Go to specific slide
-function goToSlide(slideIndex) {
-    currentSlide = slideIndex;
-    updateCarousel();
-}
+    // WhatsApp Nachricht vorbereiten
+    const msg = encodeURIComponent(`Anfrage: ${brandSel.value} / ${modelSel.value} / ${servSel.value} – Preis?`);
+    waBtn.href = `https://wa.me/491601845755?text=${msg}`;
+    waBtn.hidden = false;
+  });
 
-// Auto-play carousel
-let autoPlayInterval = setInterval(() => {
-    moveCarousel(1);
-}, 5000); // Change slide every 5 seconds
-
-// Pause auto-play on hover
-const carouselContainer = document.querySelector('.carousel-container');
-
-carouselContainer.addEventListener('mouseenter', () => {
-    clearInterval(autoPlayInterval);
-});
-
-carouselContainer.addEventListener('mouseleave', () => {
-    autoPlayInterval = setInterval(() => {
-        moveCarousel(1);
-    }, 5000);
-});
-
-// Touch support for mobile devices
-let touchStartX = 0;
-let touchEndX = 0;
-
-carouselContainer.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-});
-
-carouselContainer.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-});
-
-function handleSwipe() {
-    if (touchEndX < touchStartX - 50) {
-        moveCarousel(1); // Swipe left, go to next slide
-    }
-    if (touchEndX > touchStartX + 50) {
-        moveCarousel(-1); // Swipe right, go to previous slide
-    }
-}
-
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
+  function buildTable(map){
+    const tbody = table.querySelector('tbody');
+    tbody.innerHTML = '';
+    Object.entries(map).forEach(([service, price]) => {
+      const tr = document.createElement('tr');
+      const tdS = document.createElement('td');
+      const tdP = document.createElement('td');
+      tdS.textContent = service;
+      tdP.textContent = (price===null || typeof price === 'undefined') ? 'auf Anfrage' : `ab ${price} €`;
+      tr.append(tdS, tdP);
+      tbody.append(tr);
     });
-});
-
-// Optional: Add loading animation for images
-window.addEventListener('load', () => {
-    document.body.classList.add('loaded');
-});
-
-// Optional: Accessibility - Keyboard navigation for carousel
-document.addEventListener('keydown', (e) => {
-    if (carouselContainer.matches(':hover')) {
-        if (e.key === 'ArrowLeft') {
-            moveCarousel(-1);
-        } else if (e.key === 'ArrowRight') {
-            moveCarousel(1);
-        }
-    }
-});
+  }
+})();
