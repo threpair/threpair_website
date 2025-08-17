@@ -1,24 +1,16 @@
-// Mobile Navigation ein/aus
-const toggle = document.querySelector('.nav-toggle');
-const menu   = document.getElementById('navmenu');
-if (toggle && menu){
-  toggle.addEventListener('click', () => {
-    const open = menu.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', String(open));
+document.getElementById("year").textContent=new Date().getFullYear();
+// Reveal Animation
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("is-visible");io.unobserve(e.target);}})});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+// Produkte rendern
+if(typeof PRODUCTS!=="undefined"){
+  const list=document.getElementById("product-list");
+  PRODUCTS.forEach(p=>{
+    const div=document.createElement("div");
+    div.className="product";
+    div.innerHTML=`<div class="media"><img src="${p.img}" alt="${p.title}"></div>
+      <div class="body"><h3>${p.title}</h3><p>${p.price?`ab ${p.price} €`:"auf Anfrage"}</p>
+      <a class="btn btn-primary" target="_blank" href="https://wa.me/491601845755?text=Ich interessiere mich für: ${encodeURIComponent(p.title)}">Anfragen</a></div>`;
+    list.appendChild(div);
   });
 }
-
-// Footer-Jahr
-const y = document.getElementById('year');
-if (y) y.textContent = new Date().getFullYear();
-
-// Scroll-Reveal (sanft & professionell)
-const io = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.classList.add('is-visible');
-      io.unobserve(e.target);
-    }
-  });
-},{threshold: .15});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));

@@ -1,35 +1,6 @@
-// Preis-Datenbank – leicht editierbar.
-// Preis = Zahl (Euro). null oder weglassen = "Auf Anfrage".
-// Du kannst beliebig Marken/Modelle/Services hinzufügen.
-const PRICE_DB = {
-  "Apple": {
-    "iPhone 27": {
-      "Display Original": 9160,
-      "Display A-Qualität": 159,
-      "Display A-Qualität ohne Hinweis": 169,
-      "Display B-Qualität": 129,
-      "Akku": 59,
-      "Rückseite": null,
-      "Ladebuchse": 69,
-      "Weitere Arbeiten auf Anfrage": null
-    },
-    "iPhone 12": {
-      "Display Original": 239,
-      "Display A-Qualität": 189,
-      "Akku": 69,
-      "Ladebuchse": 79
-    }
-  },
-  "Samsung": {
-    "Galaxy S20": {
-      "Display Original": 249,
-      "Display A-Qualität": 199,
-      "Akku": 59,
-      "Ladebuchse": 69
-    }
-  },
-  "Huawei": {
-    "P30": { "Display A-Qualität": 149, "Akku": 49 }
-  }
-
-};
+const PRODUCTS=[
+ {title:"iPhone 11 – Display A‑Qualität",price:159,img:"bilder/iphone11.jpg"},
+ {title:"iPhone 12 – Akku‑Tausch",price:69,img:"bilder/iphone12.jpg"},
+ {title:"Galaxy S20 – Display A",price:199,img:"bilder/galaxy_s20.jpg"},
+ {title:"Backcover‑Tausch (Glas)",price:null,img:"bilder/backcover.jpg"}
+];

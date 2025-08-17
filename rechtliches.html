@@ -1,95 +1,32 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Rechtliches – TH Repair</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <nav class="nav">
-        <a class="brand" href="index.html">
-          <img class="logo" src="th.jpeg" alt="TH Repair Logo"
-               onerror="this.onerror=null;this.src='bilder/th.jpeg';">
-          <span>TH Repair</span>
-        </a>
-        <button class="nav-toggle" aria-expanded="false" aria-controls="navmenu" aria-label="Menü öffnen">☰</button>
-        <ul id="navmenu" class="nav-links">
-          <li><a href="index.html#leistungen">Leistungen</a></li>
-          <li><a href="index.html#preise">Preise</a></li>
-          <li><a href="index.html#kontakt">Kontakt</a></li>
-          <li><a aria-current="page">Rechtliches</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container legal">
-    <section id="impressum" class="legal-card">
-      <h1>Impressum</h1>
-      <p class="muted">Angaben gemäß § 5 TMG / § 5 DDG</p>
-      <address>
-        <strong>Tjerk Heinenbernd</strong><br />
-        Röringhoff 11<br />
-        48691 Vreden
-      </address>
-      <p>
-        Tel.: <a href="tel:+491601845755">0160 184 57 55</a><br />
-        E‑Mail: <a href="mailto:info@threpair.de">info@threpair.de</a>
-      </p>
-      <p>Kleinunternehmer gemäß § 19 UStG – es wird keine Umsatzsteuer ausgewiesen.</p>
-      <p>Termine nur nach Vereinbarung. Ohne Terminvereinbarung ist ein Besuch nicht möglich.</p>
-
-      <h2>Haftung für Inhalte</h2>
-      <p>Als Diensteanbieter bin ich gemäß § 7 Abs. 1 TMG / DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte übernehme ich keine Gewähr.</p>
-      <h2>Haftung für Links</h2>
-      <p>Für externe Inhalte übernehme ich keine Gewähr; verantwortlich ist der jeweilige Anbieter.</p>
-      <h2>Urheberrecht</h2>
-      <p>Die durch mich erstellten Inhalte unterliegen dem deutschen Urheberrecht.</p>
-    </section>
-
-    <section id="datenschutz" class="legal-card">
-      <h1>Datenschutzerklärung</h1>
-      <h2>1. Verantwortlicher</h2>
-      <p>Siehe Impressum (Kontaktdaten oben).</p>
-
-      <h2>2. Server-Logs</h2>
-      <p>Beim Besuch der Website verarbeitet der Hoster automatisch technische Daten (z. B. IP-Adresse, Datum/Uhrzeit, abgerufene Seiten). Die Verarbeitung erfolgt zur Sicherstellung des technischen Betriebs.</p>
-
-      <h2>3. Kontakt per E‑Mail/Telefon</h2>
-      <p>Übermittelte Daten (Name, Kontakt, Nachricht) werden zur Bearbeitung Ihrer Anfrage gespeichert und nicht ohne Einwilligung weitergegeben.</p>
-
-      <h2>4. WhatsApp</h2>
-      <p>Ich biete die Kontaktaufnahme über WhatsApp an (Anbieter: WhatsApp Ireland Limited, Dublin). Bei Nutzung werden personenbezogene Daten (z. B. Name, Telefonnummer, Inhalte, Metadaten) an WhatsApp übermittelt und ggf. außerhalb der EU verarbeitet. <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO (Einwilligung). Bitte senden Sie keine sensiblen Daten über WhatsApp. Weitere Informationen: <a href="https://www.whatsapp.com/legal/privacy-policy-eea" target="_blank" rel="noopener">Datenschutzerklärung von WhatsApp</a>.</p>
-
-      <h2>5. Cookies/Tracking</h2>
-      <p>Es werden keine Analyse‑Cookies oder externen Trackingdienste eingesetzt.</p>
-
-      <h2>6. Ihre Rechte</h2>
-      <ul>
-        <li>Auskunft, Berichtigung, Löschung, Einschränkung (Art. 15–18 DSGVO)</li>
-        <li>Datenübertragbarkeit (Art. 20 DSGVO)</li>
-        <li>Widerspruch (Art. 21 DSGVO)</li>
-        <li>Widerruf erteilter Einwilligungen (Art. 7 Abs. 3 DSGVO)</li>
-        <li>Beschwerderecht bei einer Aufsichtsbehörde (Art. 77 DSGVO)</li>
-      </ul>
-
-      <h2>7. Speicherdauer</h2>
-      <p>Daten werden nur so lange gespeichert, wie es für die Bearbeitung Ihrer Anfrage bzw. gesetzliche Pflichten erforderlich ist.</p>
-
-      <h2>8. Änderungen</h2>
-      <p>Ich behalte mir vor, diese Hinweise anzupassen.</p>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>© <span id="year"></span> TH Repair · <a href="#impressum">Impressum</a> · <a href="#datenschutz">Datenschutz</a></p>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
+<header class="site-header glass">
+  <nav class="nav">
+    <a class="brand" href="index.html">
+      <picture>
+        <source srcset="logo-dark.png" media="(prefers-color-scheme: dark)">
+        <img class="logo" src="logo-light.png" alt="TH Repair Logo">
+      </picture>
+      <span class="wordmark">TH Repair</span>
+    </a>
+  </nav>
+</header>
+<main class="section">
+  <h1>Impressum</h1>
+  <p>Tjerk Heinenbernd<br>Röringhoff 11<br>48691 Vreden<br>Tel: 0160 1845755<br>Email: info@threpair.de</p>
+  <h2>Datenschutzerklärung</h2>
+  <p>Diese Webseite nutzt keine Cookies. Kontakt über WhatsApp, Telefon oder E-Mail erfolgt freiwillig. Es gelten die Bestimmungen der DSGVO.</p>
+</main>
+<footer class="site-footer">
+  <p>© <span id="year"></span> TH Repair</p>
+</footer>
+<script src="script.js"></script>
 </body>
 </html>
