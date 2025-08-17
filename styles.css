@@ -9,7 +9,10 @@ body{margin:0;font-family:sans-serif;background:var(--bg);color:var(--fg)}
 a{color:var(--brand);text-decoration:none}
 .site-header{padding:10px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:rgba(0,0,0,.3);backdrop-filter:blur(10px)}
 .logo{height:40px}
+.nav{display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:8px;font-weight:600}
 .nav-links{display:flex;gap:16px;list-style:none;margin:0;padding:0}
+.wordmark{font-weight:600}
 .hero{padding:80px 20px;text-align:center;position:relative}
 .hero-bg .blob{position:absolute;inset:auto -20% -40% auto;width:60vmax;height:60vmax;border-radius:50%;background:radial-gradient(closest-side,var(--brand-2) 0%,transparent 70%);filter:blur(42px)}
 .gradient{background:linear-gradient(90deg,var(--brand),var(--brand-2));-webkit-background-clip:text;color:transparent}
