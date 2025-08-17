@@ -36,3 +36,7 @@ a{color:var(--brand);text-decoration:none}
 .whatsapp{display:inline-flex;align-items:center;gap:8px}
 .whatsapp .icon{height:20px;width:20px}
 .repair-photo{max-width:300px;margin-top:20px;border-radius:12px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center}
+.card .btn{display:inline-block;margin-top:8px}
