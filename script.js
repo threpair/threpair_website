@@ -1,6 +1,11 @@
 const yearEl=document.getElementById('year');
 if(yearEl){yearEl.textContent=new Date().getFullYear();}
 
+// Mobile Navigation
+const menuToggle=document.querySelector('.menu-toggle');
+const nav=document.querySelector('.nav');
+if(menuToggle&&nav){menuToggle.addEventListener('click',()=>nav.classList.toggle('open'));}
+
 // Reveal Animation
 const io=new IntersectionObserver(entries=>{
   entries.forEach(entry=>{
