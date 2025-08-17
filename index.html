@@ -1,98 +1,188 @@
 <!doctype html>
 <html lang="de">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TH Repair – Handyreparatur in Vreden</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header class="site-header">
-    <div class="container">
-      <nav class="nav">
-        <a class="brand" href="index.html">
-          <img class="logo" src="th.jpeg" alt="TH Repair Logo"
-               onerror="this.onerror=null;this.src='bilder/th.jpeg';">
-          <span>TH Repair</span>
-        </a>
-        <button class="nav-toggle" aria-expanded="false" aria-controls="navmenu" aria-label="Menü öffnen">☰</button>
-        <ul id="navmenu" class="nav-links">
-          <li><a href="#leistungen">Leistungen</a></li>
-          <li><a href="#preise">Preise</a></li>
-          <li><a href="#kontakt">Kontakt</a></li>
-          <li><a href="rechtliches.html">Rechtliches</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TH Repair – Handyreparatur in Vreden</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <nav class="nav">
+          <a class="brand" href="index.html">
+            <img class="logo" src="bilder/logo.svg" alt="TH Repair Logo" />
+            <span>TH Repair</span>
+          </a>
+          <button
+            class="nav-toggle"
+            aria-expanded="false"
+            aria-controls="navmenu"
+            aria-label="Menü öffnen"
+          >
+            ☰
+          </button>
+          <ul id="navmenu" class="nav-links">
+            <li><a href="#leistungen">Leistungen</a></li>
+            <li><a href="#artikel">Artikel</a></li>
+            <li><a href="#preise">Preise</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+            <li><a href="rechtliches.html">Rechtliches</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-  <main>
-    <!-- Hero -->
-    <section class="hero reveal">
-      <div class="container hero-grid">
-        <div>
-          <h1>Dein Handy in besten Händen</h1>
-          <p class="lead">Schnelle, faire Reparaturen für iPhone, Samsung, Huawei &amp; Co. Termine nur nach Vereinbarung.</p>
-          <div class="actions">
-            <a class="btn btn-primary" href="https://wa.me/491601845755" target="_blank" rel="noopener">📲 WhatsApp</a>
-            <a class="btn" href="tel:+491601845755">📞 0160 184 57 55</a>
+    <main>
+      <!-- Hero -->
+      <section class="hero reveal">
+        <div class="container hero-grid">
+          <div>
+            <h1>Dein Handy in besten Händen</h1>
+            <p class="lead">
+              Schnelle, faire Reparaturen für iPhone, Samsung, Huawei &amp; Co.
+              Termine nur nach Vereinbarung.
+            </p>
+            <div class="actions">
+              <a
+                class="btn btn-primary"
+                href="https://wa.me/491601845755"
+                target="_blank"
+                rel="noopener"
+                >📲 WhatsApp</a
+              >
+              <a class="btn" href="tel:+491601845755">📞 0160 184 57 55</a>
+            </div>
+          </div>
+          <div class="hero-media">
+            <!-- Justierung des Bildausschnitts bei Bedarf per pos-* Klasse -->
+            <img
+              src="bilder/Tjerk.jpeg"
+              alt="Inhaber Tjerk Heinenbernd"
+              class="pos-left"
+            />
           </div>
         </div>
-        <div class="hero-media">
-          <!-- Justierung des Bildausschnitts bei Bedarf per pos-* Klasse -->
-          <img src="bilder/Tjerk.jpeg" alt="Inhaber Tjerk Heinenbernd" class="pos-left">
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Leistungen -->
-    <section id="leistungen" class="section reveal">
+      <!-- Leistungen -->
+      <section id="leistungen" class="section reveal">
+        <div class="container">
+          <h2 class="section-title">Leistungen</h2>
+          <div class="cards">
+            <article class="card">
+              <h3>Display</h3>
+              <p>Original / A‑ / B‑Qualität</p>
+            </article>
+            <article class="card">
+              <h3>Akku</h3>
+              <p>Tausch inkl. Prüfung</p>
+            </article>
+            <article class="card">
+              <h3>Ladebuchse</h3>
+              <p>Reinigung oder Ersatz</p>
+            </article>
+            <article class="card">
+              <h3>Weitere</h3>
+              <p>Rückseite, Kamera u. m. – auf Anfrage</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Artikel -->
+      <section id="artikel" class="section reveal">
+        <div class="container">
+          <h2 class="section-title">Artikel</h2>
+          <div class="product-grid">
+            <article class="product-card">
+              <img src="bilder/Image1.jpeg" alt="iPhone 12 Hülle" />
+              <h3>iPhone 12 Hülle</h3>
+              <p class="price">19 €</p>
+              <a
+                class="btn btn-brand"
+                href="https://wa.me/491601845755"
+                target="_blank"
+                rel="noopener"
+                >Anfragen</a
+              >
+            </article>
+            <article class="product-card">
+              <img src="bilder/Image2.jpg" alt="Lightning Kabel" />
+              <h3>Lightning Kabel</h3>
+              <p class="price">9 €</p>
+              <a
+                class="btn btn-brand"
+                href="https://wa.me/491601845755"
+                target="_blank"
+                rel="noopener"
+                >Anfragen</a
+              >
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ab-Preise -->
+      <section id="preise" class="section reveal">
+        <div class="container">
+          <h2 class="section-title">Ab‑Preise (Beispiele)</h2>
+          <div class="price-grid">
+            <div class="price-item">
+              <span>iPhone 11 – Display A</span><strong>ab 159 €</strong>
+            </div>
+            <div class="price-item">
+              <span>iPhone 12 – Akku</span><strong>ab 69 €</strong>
+            </div>
+            <div class="price-item">
+              <span>Galaxy S20 – Display A</span><strong>ab 199 €</strong>
+            </div>
+            <div class="price-item muted">
+              Weitere Modelle &amp; Reparaturen: auf Anfrage
+            </div>
+          </div>
+          <p class="muted small">
+            Preise variieren je nach Zustand/Variante. Frag kurz per WhatsApp –
+            ich nenne dir den genauen Preis.
+          </p>
+        </div>
+      </section>
+
+      <!-- Kontakt -->
+      <section id="kontakt" class="section reveal">
+        <div class="container">
+          <h2 class="section-title">Kontakt &amp; Termin</h2>
+          <p>
+            Termine nur nach Vereinbarung. Ohne Termin ist ein Besuch nicht
+            möglich.
+          </p>
+          <div class="contact-box">
+            <a
+              class="btn btn-primary"
+              href="https://wa.me/491601845755"
+              target="_blank"
+              rel="noopener"
+              >WhatsApp schreiben</a
+            >
+            <a class="btn" href="mailto:info@threpair.de">info@threpair.de</a>
+            <a class="btn" href="tel:+491601845755">0160 184 57 55</a>
+          </div>
+          <address class="muted small">
+            Tjerk Heinenbernd · Röringhoff 11 · 48691 Vreden
+          </address>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
       <div class="container">
-        <h2 class="section-title">Leistungen</h2>
-        <div class="cards">
-          <article class="card"><h3>Display</h3><p>Original / A‑ / B‑Qualität</p></article>
-          <article class="card"><h3>Akku</h3><p>Tausch inkl. Prüfung</p></article>
-          <article class="card"><h3>Ladebuchse</h3><p>Reinigung oder Ersatz</p></article>
-          <article class="card"><h3>Weitere</h3><p>Rückseite, Kamera u. m. – auf Anfrage</p></article>
-        </div>
+        <p>
+          © <span id="year"></span> TH Repair ·
+          <a href="rechtliches.html">Impressum &amp; Datenschutz</a>
+        </p>
       </div>
-    </section>
+    </footer>
 
-    <!-- Ab-Preise -->
-    <section id="preise" class="section reveal">
-      <div class="container">
-        <h2 class="section-title">Ab‑Preise (Beispiele)</h2>
-        <div class="price-grid">
-          <div class="price-item"><span>iPhone 11 – Display A</span><strong>ab 159 €</strong></div>
-          <div class="price-item"><span>iPhone 12 – Akku</span><strong>ab 69 €</strong></div>
-          <div class="price-item"><span>Galaxy S20 – Display A</span><strong>ab 199 €</strong></div>
-          <div class="price-item muted">Weitere Modelle &amp; Reparaturen: auf Anfrage</div>
-        </div>
-        <p class="muted small">Preise variieren je nach Zustand/Variante. Frag kurz per WhatsApp – ich nenne dir den genauen Preis.</p>
-      </div>
-    </section>
-
-    <!-- Kontakt -->
-    <section id="kontakt" class="section reveal">
-      <div class="container">
-        <h2 class="section-title">Kontakt &amp; Termin</h2>
-        <p>Termine nur nach Vereinbarung. Ohne Termin ist ein Besuch nicht möglich.</p>
-        <div class="contact-box">
-          <a class="btn btn-primary" href="https://wa.me/491601845755" target="_blank" rel="noopener">WhatsApp schreiben</a>
-          <a class="btn" href="mailto:info@threpair.de">info@threpair.de</a>
-          <a class="btn" href="tel:+491601845755">0160 184 57 55</a>
-        </div>
-        <address class="muted small">Tjerk Heinenbernd · Röringhoff 11 · 48691 Vreden</address>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>© <span id="year"></span> TH Repair · <a href="rechtliches.html">Impressum &amp; Datenschutz</a></p>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
