@@ -1,105 +1,109 @@
-const yearEl=document.getElementById('year');
-if(yearEl){yearEl.textContent=new Date().getFullYear();}
+// Carousel functionality
+let currentSlide = 0;
+const slides = document.querySelectorAll('.carousel-slide');
+const totalSlides = slides.length;
+const track = document.getElementById('carouselTrack');
+const indicators = document.querySelectorAll('.indicator');
 
-// Mobile Navigation
-const menuToggle=document.querySelector('.menu-toggle');
-const nav=document.querySelector('.nav');
-if(menuToggle&&nav){menuToggle.addEventListener('click',()=>nav.classList.toggle('open'));}
+// Update carousel position and indicators
+function updateCarousel() {
+    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    
+    // Update indicators
+    indicators.forEach((indicator, index) => {
+        if (index === currentSlide) {
+            indicator.classList.add('active');
+        } else {
+            indicator.classList.remove('active');
+        }
+    });
+}
 
-// Reveal Animation
-const io=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add('is-visible');
-      io.unobserve(entry.target);
+// Move carousel in specified direction
+function moveCarousel(direction) {
+    currentSlide += direction;
+    
+    if (currentSlide < 0) {
+        currentSlide = totalSlides - 1;
+    } else if (currentSlide >= totalSlides) {
+        currentSlide = 0;
     }
-  });
+    
+    updateCarousel();
+}
+
+// Go to specific slide
+function goToSlide(slideIndex) {
+    currentSlide = slideIndex;
+    updateCarousel();
+}
+
+// Auto-play carousel
+let autoPlayInterval = setInterval(() => {
+    moveCarousel(1);
+}, 5000); // Change slide every 5 seconds
+
+// Pause auto-play on hover
+const carouselContainer = document.querySelector('.carousel-container');
+
+carouselContainer.addEventListener('mouseenter', () => {
+    clearInterval(autoPlayInterval);
 });
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-// Produkte rendern
-if(typeof PRODUCTS!== 'undefined' && document.getElementById('product-list')){
-  const list=document.getElementById('product-list');
-  PRODUCTS.forEach(p=>{
-    const div=document.createElement('div');
-    div.className='product';
-    div.innerHTML=`<div class="media"><img src="${p.img}" alt="${p.title}"></div>
-      <div class="body"><h3>${p.title}</h3><p>${p.price?`ab ${p.price} €`:'auf Anfrage'}</p>
-      <a class="btn btn-primary" target="_blank" href="https://wa.me/491601845755?text=Ich interessiere mich für: ${encodeURIComponent(p.title)}">Anfragen</a></div>`;
-    list.appendChild(div);
-  });
+carouselContainer.addEventListener('mouseleave', () => {
+    autoPlayInterval = setInterval(() => {
+        moveCarousel(1);
+    }, 5000);
+});
+
+// Touch support for mobile devices
+let touchStartX = 0;
+let touchEndX = 0;
+
+carouselContainer.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+carouselContainer.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    if (touchEndX < touchStartX - 50) {
+        moveCarousel(1); // Swipe left, go to next slide
+    }
+    if (touchEndX > touchStartX + 50) {
+        moveCarousel(-1); // Swipe right, go to previous slide
+    }
 }
 
-// Preisliste interaktiv
-if(typeof PRICE_DATA !== 'undefined' && document.getElementById('brandSelect')){
-  const brandSelect=document.getElementById('brandSelect');
-  const modelSelect=document.getElementById('modelSelect');
-  const serviceSelect=document.getElementById('serviceSelect');
-  const priceCard=document.getElementById('priceCard');
-  const selTitle=document.getElementById('selTitle');
-  const selHint=document.getElementById('selHint');
-  const priceValue=document.getElementById('priceValue');
-  const waButton=document.getElementById('waButton');
-  const priceTableBody=document.querySelector('#priceTable tbody');
-
-  Object.keys(PRICE_DATA).forEach(brand=>{
-    const opt=document.createElement('option');
-    opt.value=brand;
-    opt.textContent=brand;
-    brandSelect.appendChild(opt);
-  });
-
-  brandSelect.addEventListener('change',()=>{
-    const brand=brandSelect.value;
-    modelSelect.innerHTML='<option value="">– bitte wählen –</option>';
-    serviceSelect.innerHTML='<option value="">– zuerst Modell wählen –</option>';
-    modelSelect.disabled=!brand;
-    serviceSelect.disabled=true;
-    priceCard.hidden=true;
-    waButton.hidden=true;
-    priceTableBody.innerHTML='';
-    if(!brand)return;
-    Object.keys(PRICE_DATA[brand]).forEach(model=>{
-      const opt=document.createElement('option');
-      opt.value=model;
-      opt.textContent=model;
-      modelSelect.appendChild(opt);
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
     });
-  });
+});
 
-  modelSelect.addEventListener('change',()=>{
-    const brand=brandSelect.value;
-    const model=modelSelect.value;
-    serviceSelect.innerHTML='<option value="">– bitte wählen –</option>';
-    serviceSelect.disabled=!model;
-    priceCard.hidden=true;
-    waButton.hidden=true;
-    priceTableBody.innerHTML='';
-    if(!model)return;
-    const services=PRICE_DATA[brand][model];
-    Object.entries(services).forEach(([service,price])=>{
-      const opt=document.createElement('option');
-      opt.value=service;
-      opt.textContent=service;
-      serviceSelect.appendChild(opt);
+// Optional: Add loading animation for images
+window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+});
 
-      const tr=document.createElement('tr');
-      tr.innerHTML=`<td>${service}</td><td>${price? 'ab '+price+' €':'auf Anfrage'}</td>`;
-      priceTableBody.appendChild(tr);
-    });
-  });
-
-  serviceSelect.addEventListener('change',()=>{
-    const brand=brandSelect.value;
-    const model=modelSelect.value;
-    const service=serviceSelect.value;
-    if(!service){priceCard.hidden=true;waButton.hidden=true;return;}
-    const price=PRICE_DATA[brand][model][service];
-    selTitle.textContent=`${model} – ${service}`;
-    selHint.textContent=price? '' : 'Preisangabe folgt.';
-    priceValue.textContent=price? `ab ${price} €` : 'auf Anfrage';
-    waButton.href=`https://wa.me/491601845755?text=${encodeURIComponent('Ich interessiere mich für: '+model+' – '+service)}`;
-    waButton.hidden=false;
-    priceCard.hidden=false;
-  });
-}
+// Optional: Accessibility - Keyboard navigation for carousel
+document.addEventListener('keydown', (e) => {
+    if (carouselContainer.matches(':hover')) {
+        if (e.key === 'ArrowLeft') {
+            moveCarousel(-1);
+        } else if (e.key === 'ArrowRight') {
+            moveCarousel(1);
+        }
+    }
+});

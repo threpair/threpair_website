@@ -1,76 +1,285 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TH Repair – Handyreparatur</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TH Repair - Dein Handy in besten Händen</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header class="site-header glass">
-  <nav class="nav">
-    <a class="brand" href="index.html">
-      <picture>
-        <source srcset="logo-light.png" media="(prefers-color-scheme: dark)">
-        <img class="logo" src="logo-dark.png" alt="TH Repair Logo">
-      </picture>
-      <span class="wordmark">TH Repair</span>
-    </a>
-    <button class="menu-toggle" aria-label="Menü">☰</button>
-    <ul class="nav-links">
-      <li><a href="index.html" aria-current="page">Start</a></li>
-      <li><a href="produkte.html">Produkte</a></li>
-      <li><a href="preise.html">Preise</a></li>
-      <li><a href="faq.html">FAQ</a></li>
-      <li><a href="garantie.html">Garantie</a></li>
-      <li><a href="rechtliches.html">Rechtliches</a></li>
-    </ul>
-  </nav>
-</header>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">🔧</div>
+                    <span>TH Repair</span>
+                </div>
+            </div>
+        </div>
+    </header>
 
-<main>
+    <!-- Hero Section -->
     <section class="hero">
-    <div class="hero-bg">
-      <div class="blob"></div>
-      <div class="gridlines"></div>
-    </div>
-    <div class="hero-content reveal">
-      <img src="bilder/Tjerk.jpeg" alt="Tjerk Hansen" class="hero-photo">
-      <h1 class="gradient">Dein Handy in besten Händen</h1>
-      <p>Schnelle Reparaturen in Vreden. Termine nur nach Vereinbarung.</p>
-      <a class="btn btn-primary whatsapp" href="https://wa.me/491601845755" target="_blank"><img class="icon" src="bilder/whatsapp.svg" alt=""> Jetzt anschreiben</a>
-        <img src="bilder/Image1.jpeg" alt="Handy wird repariert" class="repair-photo">
-      </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="trust-badge">
+                        <span>✓</span>
+                        <span>Mehrjährige Erfahrung</span>
+                    </div>
+                    <div class="trust-badge">
+                        <span>✓</span>
+                        <span>Zuverlässig</span>
+                    </div>
+                    <div class="trust-badge">
+                        <span>✓</span>
+                        <span>Hilfsbereit</span>
+                    </div>
+                    <h1>Dein Handy in besten Händen</h1>
+                    <p>Professionelle Reparaturen für Smartphones &amp; Tablets mit persönlicher Beratung und fairen Preisen</p>
+                    <a href="#contact" class="cta-button">Jetzt Termin vereinbaren</a>
+                </div>
+                <div class="hero-image">
+                    <img src="./bilder/Tjerk.jpeg" alt="TH - Inhaber von TH Repair">
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="marken" class="section">
-      <h2 class="section-title">Unsere Marken</h2>
-      <div class="grid">
-        <div class="card"><strong>Apple</strong><div class="btn btn-primary">iPhone / iPad</div></div>
-        <div class="card"><strong>Samsung</strong><div class="btn btn-primary">Galaxy Serie</div></div>
-        <div class="card"><strong>Huawei</strong><div class="btn btn-primary">P &amp; Mate</div></div>
-        <div class="card"><strong>OPPO</strong><div class="btn btn-primary">Find, Reno</div></div>
-      </div>
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title">✅ Unsere Leistungen</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <span class="service-icon">📱</span>
+                    <h3>Smartphone-Reparatur</h3>
+                    <p>Display, Akku, Ladebuchse, Kamera und mehr für Apple, Samsung, Huawei, Xiaomi</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">🛍️</span>
+                    <h3>Geräteverkauf</h3>
+                    <p>Neugeräte und geprüfte Refurbished-Geräte zu fairen Preisen</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">🎯</span>
+                    <h3>Zubehör &amp; Ersatzteile</h3>
+                    <p>Kabel, Hüllen, Schutzfolien und mehr - alles für dein Gerät</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">💬</span>
+                    <h3>Persönliche Beratung</h3>
+                    <p>Ehrliche Einschätzung und individuelle Lösungen für dein Gerät</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="preise" class="section">
-      <h2 class="section-title">Preise (Beispiel)</h2>
-      <div class="grid">
-        <div class="card">Displaytausch iPhone 16 Pro Max – <strong>180 €</strong></div>
-        <div class="card">Batteriewechsel – <strong>75 €</strong></div>
-      </div>
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <h2 class="section-title">👨‍🔧 Über TH Repair</h2>
+            <div class="about-content">
+                <!-- Image Carousel -->
+                <div class="carousel-container">
+                    <div class="carousel-track" id="carouselTrack">
+                        <div class="carousel-slide">
+                            <img src="bilder/Tjerk.jpeg" alt="TH - Inhaber von TH Repair" class="slide-bg-1">
+                            <div class="carousel-caption">
+                                <h4>Tjerk - Ihr Experte für Handyreparaturen</h4>
+                                <p>Mit Leidenschaft und Präzision für Ihr Gerät</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="bilder/Image1.jpeg" alt="Werkstatt" class="slide-bg-2">
+                            <div class="carousel-caption">
+                                <h4>Professionelle Werkstatt</h4>
+                                <p>Moderne Ausstattung für beste Ergebnisse</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="bilder/Image2.jpg" alt="Reparaturarbeit" class="slide-bg-3">
+                            <div class="carousel-caption">
+                                <h4>Präzise Arbeit</h4>
+                                <p>Jede Reparatur mit höchster Sorgfalt</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="bilder/Image3.avif" alt="Reparierte Geräte" class="slide-bg-4">
+                            <div class="carousel-caption">
+                                <h4>Alle Marken willkommen</h4>
+                                <p>Apple, Samsung, Huawei, Xiaomi und mehr</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-nav">
+                        <button type="button" class="carousel-btn" onclick="moveCarousel(-1)">‹</button>
+                        <button type="button" class="carousel-btn" onclick="moveCarousel(1)">›</button>
+                    </div>
+                </div>
+                <div class="carousel-indicators" id="indicators">
+                    <span class="indicator active" onclick="goToSlide(0)"></span>
+                    <span class="indicator" onclick="goToSlide(1)"></span>
+                    <span class="indicator" onclick="goToSlide(2)"></span>
+                    <span class="indicator" onclick="goToSlide(3)"></span>
+                </div>
+
+                <div class="about-box">
+                    <h3>Wer steckt dahinter?</h3>
+                    <p>Ich bin Tjerk Heinenbernd, leidenschaftlicher Techniker mit mehrjähriger Erfahrung in der Handyreparatur. Mit voller Präzision, Verlässlichkeit und Hands-on-Mentalität kümmere ich mich um dein Gerät.</p>
+                    <div class="highlight-box">
+                        <p>⚠️ Wichtig: Ich arbeite ausschließlich mit Terminen. So kann ich dir den bestmöglichen Service ohne Wartezeit bieten.</p>
+                    </div>
+                    <h3 class="promise-heading">🔒 Mein Versprechen</h3>
+                    <p>✓ Faire Preise ohne versteckte Kosten<br>
+                    ✓ Nur geprüfte Ersatzteile<br>
+                    ✓ Ehrliche Einschätzung zur Reparatur<br>
+                    ✓ Garantie auf alle Arbeiten</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="kontakt" class="section">
-      <h2 class="section-title">Kontakt</h2>
-      <p>📍 Vreden<br>📱 WhatsApp: <a href="https://wa.me/491601845755">0160 1845755</a></p>
-      <a class="btn btn-primary" href="https://www.kleinanzeigen.de/s-bestandsliste.html?userId=137900326" target="_blank">Zu unseren Kleinanzeigen</a>
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>📅 Jetzt Termin vereinbaren</h2>
+            <p class="contact-subheading">Am schnellsten erreichst du mich über WhatsApp</p>
+            <div class="contact-buttons">
+                <a href="https://wa.me/491601845755" class="whatsapp-button">
+                    📲 WhatsApp Schreiben!
+                </a>
+                <a href="https://www.kleinanzeigen.de/s-bestandsliste.html?userId=137900326" class="secondary-button">
+                    🛍️ Kleinanzeigen
+                </a>
+            </div>
+        </div>
     </section>
-  </main>
 
-<footer class="site-footer">
-  <p>© <span id="year"></span> TH Repair · <a href="rechtliches.html">Impressum &amp; Datenschutz</a></p>
-</footer>
-<script src="script.js"></script>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 TH Repair - Alle Rechte vorbehalten</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
+<!-- START: threpair.de – Footer + Impressum & Datenschutz (COPY/PASTE) -->
+<style>
+  /* Minimal, konfliktarme Styles (präfix: threpair-) */
+  .threpair-footer { margin-top: 48px; padding: 16px 0; border-top: 1px solid #e5e7eb; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; font-size: 14px; color: #475569; }
+  .threpair-footer a { color: inherit; text-decoration: none; }
+  .threpair-footer a:hover { text-decoration: underline; }
+
+  .threpair-legal-section { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; margin: 32px 0; padding: 24px; border: 1px solid #e5e7eb; border-radius: 12px; background: #f8fafc; color: #0f172a; }
+  .threpair-legal-section h1 { margin: 0 0 8px; font-size: 22px; line-height: 1.25; }
+  .threpair-legal-section h2 { margin: 18px 0 6px; font-size: 16px; }
+  .threpair-muted { color: #64748b; font-size: 14px; margin: 0 0 12px; }
+  .threpair-legal-section address { font-style: normal; }
+  .threpair-legal-section ul { padding-left: 18px; }
+  @media (prefers-color-scheme: dark) {
+    .threpair-footer { border-top-color: #1f2937; color: #94a3b8; }
+    .threpair-legal-section { background: #0b1220; border-color: #1f2937; color: #e5e7eb; }
+    .threpair-muted { color: #94a3b8; }
+  }
+</style>
+
+<footer class="threpair-footer">
+  <small>© <span id="threpair-year"></span> threpair.de · Tjerk Heinenbernd · <a href="#impressum">Impressum</a> · <a href="#datenschutz">Datenschutz</a></small>
+</footer>
+
+<!-- Impressum (Anker: #impressum) -->
+<section id="impressum" class="threpair-legal-section" aria-labelledby="imp-title">
+  <h1 id="imp-title">Impressum</h1>
+  <p class="threpair-muted">Angaben gemäß § 5 TMG / § 5 DDG</p>
+
+  <h2>Verantwortlich</h2>
+  <address>
+    <strong>Tjerk Heinenbernd</strong><br />
+    Röringhoff 11<br />
+    48691 Vreden
+  </address>
+
+  <h2>Kontakt</h2>
+  <p>
+    Tel.: <a href="tel:+491601845755" rel="nofollow">0160 184 57 55</a><br />
+    E‑Mail: <a href="mailto:info@threpair.de">info@threpair.de</a>
+  </p>
+
+  <h2>Unternehmensangaben</h2>
+  <p>Kleinunternehmer gemäß § 19 UStG – es wird keine Umsatzsteuer ausgewiesen.</p>
+
+  <h2>Termine</h2>
+  <p>Termine nur nach Vereinbarung. Ohne Terminvereinbarung ist ein Besuch nicht möglich.</p>
+
+  <h2>Haftung für Inhalte</h2>
+  <p>Als Diensteanbieter bin ich gemäß § 7 Abs. 1 TMG / DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte übernehme ich keine Gewähr.</p>
+
+  <h2>Haftung für Links</h2>
+  <p>Diese Website kann Links zu externen Websites Dritter enthalten, auf deren Inhalte ich keinen Einfluss habe. Für diese fremden Inhalte übernehme ich keine Gewähr. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich.</p>
+
+  <h2>Urheberrecht</h2>
+  <p>Die durch mich erstellten Inhalte und Werke auf dieser Website unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen meiner schriftlichen Zustimmung.</p>
+</section>
+
+<!-- Datenschutz (Anker: #datenschutz) -->
+<section id="datenschutz" class="threpair-legal-section" aria-labelledby="ds-title">
+  <h1 id="ds-title">Datenschutzerklärung</h1>
+
+  <h2>1. Verantwortlicher</h2>
+  <address>
+    <strong>Tjerk Heinenbernd</strong><br />
+    Röringhoff 11, 48691 Vreden<br />
+    Tel.: <a href="tel:+491601845755" rel="nofollow">0160 184 57 55</a> · E‑Mail: <a href="mailto:info@threpair.de">info@threpair.de</a>
+  </address>
+
+  <h2>2. Erhebung und Speicherung personenbezogener Daten</h2>
+  <p>Beim Aufruf dieser Website werden durch den Hosting‑Provider automatisch Server‑Logfiles erfasst (z.&nbsp;B. IP‑Adresse, Datum/Uhrzeit, abgerufene Seiten, User‑Agent). Die Verarbeitung erfolgt zur Sicherstellung des technischen Betriebs und zur Abwehr von Gefahren.</p>
+
+  <h2>3. Kontaktaufnahme per E‑Mail oder Telefon</h2>
+  <p>Bei Kontaktaufnahme per E‑Mail oder Telefon werden die von Ihnen übermittelten Daten (z.&nbsp;B. Name, E‑Mail, Telefonnummer, Inhalte der Anfrage) zur Bearbeitung gespeichert. Eine Weitergabe erfolgt nicht ohne Ihre Einwilligung.</p>
+
+  <h2>4. Kontaktaufnahme über WhatsApp</h2>
+  <p>Ich biete die Möglichkeit, über WhatsApp Kontakt aufzunehmen. Anbieter ist die WhatsApp Ireland Limited, 4 Grand Canal Square, Grand Canal Harbour, Dublin 2, Irland. Bei Nutzung werden personenbezogene Daten (z.&nbsp;B. Name, Telefonnummer, Nachrichteninhalte, Metadaten) an WhatsApp übermittelt und können – je nach Konstellation – auch auf Servern außerhalb der EU verarbeitet werden.</p>
+  <ul>
+    <li><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO (Einwilligung). Ohne Ihre ausdrückliche Einwilligung nutze ich WhatsApp nicht zur aktiven Kontaktaufnahme.</li>
+    <li>Bitte übermitteln Sie keine besonderen Kategorien personenbezogener Daten (z.&nbsp;B. Gesundheitsdaten) über WhatsApp.</li>
+    <li>Weitere Informationen: <a href="https://www.whatsapp.com/legal/privacy-policy-eea" target="_blank" rel="noreferrer noopener">Datenschutzerklärung von WhatsApp (EU/EWR)</a>.</li>
+  </ul>
+
+  <h2>5. Cookies und Tracking</h2>
+  <p>Diese Website setzt keine Analyse‑Cookies und keine Drittanbieter‑Trackingdienste ein. Technisch erforderliche Verarbeitungen zur Bereitstellung der Seite können stattfinden (z.&nbsp;B. Server‑Logfiles).</p>
+
+  <h2>6. Ihre Rechte</h2>
+  <ul>
+    <li>Auskunft über gespeicherte Daten (Art. 15 DSGVO)</li>
+    <li>Berichtigung unrichtiger Daten (Art. 16 DSGVO)</li>
+    <li>Löschung (Art. 17 DSGVO)</li>
+    <li>Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
+    <li>Datenübertragbarkeit (Art. 20 DSGVO)</li>
+    <li>Widerspruch gegen Verarbeitungen (Art. 21 DSGVO)</li>
+    <li>Widerruf erteilter Einwilligungen (Art. 7 Abs. 3 DSGVO)</li>
+    <li>Beschwerde bei einer Aufsichtsbehörde (Art. 77 DSGVO)</li>
+  </ul>
+
+  <h2>7. Speicherdauer</h2>
+  <p>Personenbezogene Daten speichere ich nur so lange, wie dies zur Bearbeitung Ihrer Anfrage oder zur Erfüllung gesetzlicher Aufbewahrungspflichten erforderlich ist.</p>
+
+  <h2>8. Sicherheit</h2>
+  <p>Ich treffe angemessene technische und organisatorische Maßnahmen, um Ihre Daten vor Verlust, Missbrauch oder unbefugtem Zugriff zu schützen.</p>
+
+  <h2>9. Änderungen</h2>
+  <p>Ich behalte mir vor, diese Datenschutzerklärung anzupassen, um sie bei Änderungen meiner Leistungen oder aufgrund geänderter Rechtslagen zu aktualisieren.</p>
+</section>
+
+<script>
+  // Automatisches Jahr im Footer
+  (function(){
+    var el = document.getElementById('threpair-year');
+    if (el) el.textContent = new Date().getFullYear();
+  })();
+</script>
+<!-- END: threpair.de – Footer + Impressum & Datenschutz (COPY/PASTE) -->
