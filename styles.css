@@ -104,6 +104,20 @@ header {
     max-width: 600px;
 }
 
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.cta-button.kleinanzeigen-button {
+    background: var(--secondary-color);
+}
+
+.cta-button.kleinanzeigen-button:hover {
+    background: #1d4ed8;
+}
+
 .trust-badge {
     display: inline-flex;
     align-items: center;
