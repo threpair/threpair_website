@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 90">
+  <style>
+    .primary { fill: #7ec9f7; }
+    .white { fill: #ffffff; }
+  </style>
+  <circle cx="60" cy="40" r="38" class="primary" opacity=".3"/>
+  <circle cx="60" cy="40" r="28" class="primary"/>
+  <rect x="52" y="22" width="16" height="30" rx="2" class="white"/>
+  <rect x="55" y="26" width="10" height="22" rx="1" class="primary" opacity=".3"/>
+  <circle cx="60" cy="48" r="1.5" class="primary"/>
+  <path d="M10 60h100v20H10z" class="primary"/>
+  <text x="60" y="74" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#fff">TH REPAIR</text>
+</svg>
