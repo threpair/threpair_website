@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verträge mit Gerät | TH Repair</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <img src="bilder/threpair-logo.svg" alt="TH Repair Logo" class="logo-image">
+        </div>
+        <nav class="main-nav" aria-label="Hauptnavigation">
+          <a href="index.html">Startseite</a>
+          <a href="vertraege-mit-geraet.html" aria-current="page">Verträge mit Gerät</a>
+          <a href="vertraege-ohne-geraet.html">Verträge ohne Gerät</a>
+          <a href="reparaturen.html">Reparaturen</a>
+          <a href="kontakt.html">Kontakt</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="product-page" data-category="Verträge mit Gerät">
+    <section class="container">
+      <h1 class="section-title">Verträge mit Gerät</h1>
+      <p class="section-intro">Finde den passenden Tarif mit Smartphone inklusive.</p>
+
+      <form class="filter-panel" id="productFilters">
+        <label>
+          Suche
+          <input type="search" id="searchInput" placeholder="z. B. iPhone, 5G, Samsung">
+        </label>
+        <label>
+          Netz
+          <select id="networkFilter">
+            <option value="">Alle Netze</option>
+          </select>
+        </label>
+        <label>
+          Max. Preis / Monat
+          <input type="number" id="maxPriceFilter" min="0" step="1" placeholder="z. B. 40">
+        </label>
+      </form>
+
+      <p id="resultsInfo" class="results-info" aria-live="polite"></p>
+      <section id="productList" class="product-grid" aria-live="polite"></section>
+
+      <!-- Beispiel Produktcard -->
+      <template id="productCardTemplate">
+        <article class="product-card">
+          <span class="product-category">Verträge mit Gerät</span>
+          <h2 class="product-title">vitrado Smart XL + iPhone</h2>
+          <p class="product-description">40 GB 5G Datenvolumen inklusive Smartphone und Allnet-Flat.</p>
+          <ul class="product-meta">
+            <li><strong>Netz:</strong> Telekom</li>
+            <li><strong>Preis:</strong> 49,99 € / Monat</li>
+          </ul>
+          <a class="cta-button" href="kontakt.html">Jetzt anfragen</a>
+        </article>
+      </template>
+    </section>
+  </main>
+
+  <script src="products.js" defer></script>
+</body>
+</html>

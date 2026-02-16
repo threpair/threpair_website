@@ -1,0 +1,56 @@
+[
+  {
+    "id": "vmg-001",
+    "name": "vitrado Smart XL + iPhone 15",
+    "category": "Verträge mit Gerät",
+    "network": "Telekom",
+    "price": 49.99,
+    "description": "40 GB 5G, Allnet-Flat und iPhone 15 im Bundle.",
+    "cta": "kontakt.html"
+  },
+  {
+    "id": "vmg-002",
+    "name": "vitrado Family M + Galaxy S24",
+    "category": "Verträge mit Gerät",
+    "network": "Vodafone",
+    "price": 44.99,
+    "description": "30 GB 5G Tarif mit Samsung Galaxy S24 und EU-Roaming.",
+    "cta": "kontakt.html"
+  },
+  {
+    "id": "vog-001",
+    "name": "vitrado SIM Flex 20",
+    "category": "Verträge ohne Gerät",
+    "network": "o2",
+    "price": 19.99,
+    "description": "20 GB LTE/5G, monatlich kündbar, ideal für Wenignutzer.",
+    "cta": "kontakt.html"
+  },
+  {
+    "id": "vog-002",
+    "name": "vitrado Unlimited Max",
+    "category": "Verträge ohne Gerät",
+    "network": "Telekom",
+    "price": 34.99,
+    "description": "Unbegrenztes Datenvolumen und Allnet-Flat ohne Gerätebindung.",
+    "cta": "kontakt.html"
+  },
+  {
+    "id": "rep-001",
+    "name": "Displaytausch iPhone 13",
+    "category": "Reparaturen",
+    "network": "Vor-Ort Service",
+    "price": 149.0,
+    "description": "Originalqualität Displaytausch inklusive Funktionstest.",
+    "cta": "kontakt.html"
+  },
+  {
+    "id": "rep-002",
+    "name": "Akkutausch Samsung Galaxy S22",
+    "category": "Reparaturen",
+    "network": "Vor-Ort Service",
+    "price": 89.0,
+    "description": "Schneller Akkutausch inklusive Dichtigkeitsprüfung.",
+    "cta": "kontakt.html"
+  }
+]

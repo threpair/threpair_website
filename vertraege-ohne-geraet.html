@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verträge ohne Gerät | TH Repair</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <img src="bilder/threpair-logo.svg" alt="TH Repair Logo" class="logo-image">
+        </div>
+        <nav class="main-nav" aria-label="Hauptnavigation">
+          <a href="index.html">Startseite</a>
+          <a href="vertraege-mit-geraet.html">Verträge mit Gerät</a>
+          <a href="vertraege-ohne-geraet.html" aria-current="page">Verträge ohne Gerät</a>
+          <a href="reparaturen.html">Reparaturen</a>
+          <a href="kontakt.html">Kontakt</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="product-page" data-category="Verträge ohne Gerät">
+    <section class="container">
+      <h1 class="section-title">Verträge ohne Gerät</h1>
+      <p class="section-intro">Flexible SIM-only Tarife ohne Hardwarebindung.</p>
+
+      <form class="filter-panel" id="productFilters">
+        <label>Suche<input type="search" id="searchInput" placeholder="Tarifname oder Stichwort"></label>
+        <label>Netz<select id="networkFilter"><option value="">Alle Netze</option></select></label>
+        <label>Max. Preis / Monat<input type="number" id="maxPriceFilter" min="0" step="1" placeholder="z. B. 30"></label>
+      </form>
+
+      <p id="resultsInfo" class="results-info" aria-live="polite"></p>
+      <section id="productList" class="product-grid" aria-live="polite"></section>
+    </section>
+  </main>
+
+  <script src="products.js" defer></script>
+</body>
+</html>

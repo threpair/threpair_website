@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reparaturen | TH Repair</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <img src="bilder/threpair-logo.svg" alt="TH Repair Logo" class="logo-image">
+        </div>
+        <nav class="main-nav" aria-label="Hauptnavigation">
+          <a href="index.html">Startseite</a>
+          <a href="vertraege-mit-geraet.html">Verträge mit Gerät</a>
+          <a href="vertraege-ohne-geraet.html">Verträge ohne Gerät</a>
+          <a href="reparaturen.html" aria-current="page">Reparaturen</a>
+          <a href="kontakt.html">Kontakt</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="product-page" data-category="Reparaturen">
+    <section class="container">
+      <h1 class="section-title">Reparaturen</h1>
+      <p class="section-intro">Schnelle und transparente Reparaturangebote für Smartphones und Tablets.</p>
+
+      <form class="filter-panel" id="productFilters">
+        <label>Suche<input type="search" id="searchInput" placeholder="Display, Akku, Marke..."></label>
+        <label>Netz<select id="networkFilter"><option value="">Alle</option></select></label>
+        <label>Max. Preis<input type="number" id="maxPriceFilter" min="0" step="1" placeholder="z. B. 120"></label>
+      </form>
+
+      <p id="resultsInfo" class="results-info" aria-live="polite"></p>
+      <section id="productList" class="product-grid" aria-live="polite"></section>
+    </section>
+  </main>
+
+  <script src="products.js" defer></script>
+</body>
+</html>

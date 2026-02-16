@@ -524,3 +524,125 @@ button:focus {
     outline: 3px solid var(--accent-color);
     outline-offset: 2px;
 }
+/* Main navigation */
+.main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.main-nav a {
+    color: var(--white);
+    text-decoration: none;
+    padding: 10px 14px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.main-nav a:hover,
+.main-nav a[aria-current='page'] {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Product pages */
+.product-page {
+    padding: 40px 0 70px;
+    background: var(--bg-light);
+    min-height: calc(100vh - 120px);
+}
+
+.section-intro {
+    text-align: center;
+    color: var(--text-light);
+    margin: -25px 0 30px;
+}
+
+.filter-panel {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 25px;
+    background: var(--white);
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+}
+
+.filter-panel label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+.filter-panel input,
+.filter-panel select {
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 16px;
+}
+
+.results-info {
+    margin-bottom: 14px;
+    font-weight: 600;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.product-card,
+.contact-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 22px;
+    box-shadow: var(--shadow);
+}
+
+.product-category {
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: 13px;
+    color: var(--secondary-color);
+    background: #dbeafe;
+    padding: 6px 10px;
+    border-radius: 999px;
+}
+
+.product-title {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.product-description {
+    color: var(--text-light);
+    margin-bottom: 12px;
+}
+
+.product-meta {
+    list-style: none;
+    margin-bottom: 18px;
+    display: grid;
+    gap: 6px;
+}
+
+@media (max-width: 900px) {
+    .header-content {
+        gap: 14px;
+        flex-direction: column;
+    }
+
+    .main-nav {
+        justify-content: center;
+    }
+}
