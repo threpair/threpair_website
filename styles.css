@@ -279,7 +279,9 @@ iframe { border: 0; width: 100%; }
   background: linear-gradient(180deg, rgba(255,255,255,.65), rgba(255,255,255,.92));
   display:flex; align-items:center; justify-content:center; padding: 22px;
 }
-.embed-box.large { min-height: 500px; }
+.embed-box.large { min-height: 500px; align-items: flex-start; }
+.embed-box.is-loaded { display:block; overflow:hidden; }
+.embed-box[data-manual-embed] { content-visibility: auto; contain-intrinsic-size: 500px; }
 .embed-placeholder { max-width: 700px; text-align: center; }
 .embed-placeholder h3 { margin-top:0; }
 .embed-actions { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:18px; }

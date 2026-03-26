@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const acceptButton = document.querySelector('[data-cookie-accept]');
   const declineButton = document.querySelector('[data-cookie-decline]');
   const consentKey = 'threpair_cookie_choice';
+  let pendingEmbedBox = null;
 
   const hideBanner = () => {
     if (cookieBanner) cookieBanner.hidden = true;
@@ -29,7 +30,12 @@ document.addEventListener('DOMContentLoaded', () => {
       console.warn('Consent konnte nicht gespeichert werden.', error);
     }
     if (value === 'accepted') {
-      activateThirdPartyEmbeds();
+      if (pendingEmbedBox) {
+        activateEmbed(pendingEmbedBox);
+        pendingEmbedBox = null;
+      } else {
+        activateThirdPartyEmbeds();
+      }
     }
     hideBanner();
   };
@@ -66,38 +72,60 @@ document.addEventListener('DOMContentLoaded', () => {
     button.addEventListener('click', () => showBanner());
   });
 
+  function activateEmbed(box) {
+    if (!box || box.dataset.loaded === 'true') return;
+    const type = box.dataset.embedType || 'iframe';
+
+    if (type === 'iframe') {
+      const iframe = document.createElement('iframe');
+      iframe.loading = 'lazy';
+      iframe.referrerPolicy = 'no-referrer-when-downgrade';
+      iframe.src = box.dataset.src;
+      iframe.title = box.dataset.title || 'Externer Inhalt';
+      iframe.allowFullscreen = true;
+      box.innerHTML = '';
+      box.classList.add('map-frame');
+      box.appendChild(iframe);
+    } else if (type === 'script-widget') {
+      const container = document.createElement('div');
+      const containerId = box.dataset.widgetId;
+      if (containerId) container.id = containerId;
+      container.style.width = '100%';
+      box.innerHTML = '';
+      box.appendChild(container);
+
+      const script = document.createElement('script');
+      script.src = box.dataset.scriptSrc;
+      script.async = true;
+      box.appendChild(script);
+    }
+
+    box.dataset.loaded = 'true';
+    box.classList.add('is-loaded');
+  }
+
   function activateThirdPartyEmbeds() {
     document.querySelectorAll('[data-consent-embed]').forEach((box) => {
-      if (box.dataset.loaded === 'true') return;
-      const type = box.dataset.embedType || 'iframe';
-
-      if (type === 'iframe') {
-        const iframe = document.createElement('iframe');
-        iframe.loading = 'lazy';
-        iframe.referrerPolicy = 'no-referrer-when-downgrade';
-        iframe.src = box.dataset.src;
-        iframe.title = box.dataset.title || 'Externer Inhalt';
-        iframe.allowFullscreen = true;
-        box.innerHTML = '';
-        box.classList.add('map-frame');
-        box.appendChild(iframe);
-      } else if (type === 'script-widget') {
-        const container = document.createElement('div');
-        const containerId = box.dataset.widgetId;
-        if (containerId) container.id = containerId;
-        container.style.width = '100%';
-        box.innerHTML = '';
-        box.appendChild(container);
-
-        const script = document.createElement('script');
-        script.src = box.dataset.scriptSrc;
-        script.async = true;
-        box.appendChild(script);
-      }
-
-      box.dataset.loaded = 'true';
+      if (box.hasAttribute('data-manual-embed')) return;
+      activateEmbed(box);
     });
   }
+
+  document.querySelectorAll('[data-load-embed]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const box = button.closest('[data-consent-embed]');
+      if (!box) return;
+
+      const storedConsent = getConsent();
+      if (storedConsent === 'accepted') {
+        activateEmbed(box);
+        return;
+      }
+
+      pendingEmbedBox = box;
+      showBanner();
+    });
+  });
 
   const revealItems = document.querySelectorAll('[data-reveal]');
   if ('IntersectionObserver' in window && revealItems.length) {
