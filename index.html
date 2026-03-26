@@ -7,11 +7,11 @@
   <meta name="description" content="TH Repair bietet Smartphone Reparaturen in Vreden und im Umkreis von ca. 20 km: Display, Akku, Ladebuchse, Kamera und mehr. Nur nach Termin.">
   <link rel="canonical" href="https://www.threpair.de/">
   <meta name="robots" content="index,follow">
+  <link rel="stylesheet" href="styles.css">
   <meta property="og:title" content="TH Repair – Smartphone Reparatur in Vreden">
   <meta property="og:description" content="Schnelle Smartphone Reparaturen in Vreden und Umgebung. Faire Preise, ehrliche Einschätzung und Termine per WhatsApp.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="de_DE">
-  <link rel="stylesheet" href="styles.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -28,48 +28,23 @@
       "addressLocality": "Vreden",
       "addressCountry": "DE"
     },
-    "areaServed": [
-      "Vreden",
-      "Ahaus",
-      "Stadtlohn",
-      "Winterswijk",
-      "Oeding",
-      "Südlohn"
-    ],
+    "areaServed": ["Vreden","Ahaus","Stadtlohn","Südlohn","Oeding","Winterswijk"],
     "priceRange": "€€",
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "description": "Termine nur nach Vereinbarung"
-    },
-    "sameAs": [
-      "https://www.kleinanzeigen.de/s-bestandsliste.html?userId=137900326"
-    ]
+    "openingHoursSpecification": {"@type": "OpeningHoursSpecification", "description": "Termine nur nach Vereinbarung"},
+    "sameAs": ["https://www.kleinanzeigen.de/s-bestandsliste.html?userId=137900326"]
   }
   </script>
+  <script src="preise.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="TH Repair Startseite">
-        <span class="brand-mark">🔧</span>
-        <span>
-          TH Repair
-          <small>Smartphone Reparatur in Vreden</small>
-        </span>
-      </a>
-
-      <nav class="nav" data-nav aria-label="Hauptnavigation">
-        <a class="active" href="index.html">Start</a>
-        <a href="reparaturen.html">Reparaturen</a>
-        <a href="kontakt.html">Kontakt</a>
-        <a href="impressum.html">Impressum</a>
-        <a href="datenschutz.html">Datenschutz</a>
-      </nav>
-
+      <a class="brand" href="index.html" aria-label="TH Repair Startseite"><span class="brand-mark">🔧</span><span>TH Repair<small>Smartphone Reparatur in Vreden</small></span></a>
+      <nav class="nav" data-nav aria-label="Hauptnavigation"><a class="active" href="index.html">Start</a><a class="" href="reparaturen.html">Reparaturen</a><a class="" href="preise.html">Preise</a><a class="" href="tarife.html">Tarife</a><a class="" href="kontakt.html">Kontakt</a><a class="" href="impressum.html">Impressum</a><a class="" href="datenschutz.html">Datenschutz</a></nav>
       <div class="header-actions">
-        <a class="btn btn-secondary" href="reparaturen.html">Leistungen</a>
+        <a class="btn btn-secondary" href="preise.html">Preisliste</a>
         <a class="btn btn-primary" href="https://wa.me/491601845755?text=Hallo%20ich%20möchte%20einen%20Termin%20vereinbaren" target="_blank" rel="noopener noreferrer">WhatsApp</a>
         <button class="mobile-toggle" type="button" data-mobile-toggle aria-expanded="false" aria-label="Menü öffnen">☰</button>
       </div>
@@ -79,7 +54,7 @@
   <main id="main">
     <section class="hero">
       <div class="container hero-grid">
-        <div class="hero-copy">
+        <div class="hero-copy" data-reveal>
           <span class="eyebrow">Vreden · Umkreis ca. 20 km · Termine nach Vereinbarung</span>
           <h1>Smartphone Reparatur in Vreden.</h1>
           <p>Display kaputt, Akku schwach oder Ladebuchse defekt? TH Repair repariert Smartphones schnell, sauber und fair – für Kundinnen und Kunden aus Vreden und der Umgebung.</p>
@@ -87,30 +62,19 @@
             <span class="pill">Display Reparatur</span>
             <span class="pill">Akku Wechsel</span>
             <span class="pill">Ladebuchse</span>
-            <span class="pill">Kamera & Backcover</span>
+            <span class="pill">Kamera &amp; Backcover</span>
           </div>
           <div class="hero-actions">
             <a class="btn btn-primary" href="https://wa.me/491601845755?text=Hallo%20ich%20möchte%20einen%20Termin%20für%20mein%20Smartphone%20vereinbaren" target="_blank" rel="noopener noreferrer">Jetzt Termin per WhatsApp</a>
             <a class="btn btn-secondary" href="reparaturen.html">Reparaturen ansehen</a>
           </div>
-
           <div class="hero-stat-grid">
-            <article class="info-card">
-              <h3>Nur Smartphones</h3>
-              <p>Klare Spezialisierung auf Smartphone-Reparaturen – ohne Tablets.</p>
-            </article>
-            <article class="info-card">
-              <h3>Ehrliche Einschätzung</h3>
-              <p>Keine unnötigen Reparaturen und transparente Empfehlung vorab.</p>
-            </article>
-            <article class="info-card">
-              <h3>Regional erreichbar</h3>
-              <p>Für Vreden und Orte im Umkreis von rund 20 Kilometern.</p>
-            </article>
+            <article class="info-card reveal-stagger-1" data-reveal><h3>Nur Smartphones</h3><p>Klare Spezialisierung auf Smartphone-Reparaturen – ohne Tablets.</p></article>
+            <article class="info-card reveal-stagger-2" data-reveal><h3>Ehrliche Einschätzung</h3><p>Keine unnötigen Reparaturen und transparente Empfehlung vorab.</p></article>
+            <article class="info-card reveal-stagger-3" data-reveal><h3>Regional erreichbar</h3><p>Für Vreden und Orte im Umkreis von rund 20 Kilometern.</p></article>
           </div>
         </div>
-
-        <aside class="hero-card">
+        <aside class="hero-card" data-reveal>
           <img src="bilder/Tjerk.jpeg" alt="Tjerk von TH Repair in Vreden">
           <div class="hero-card-content">
             <strong>TH Repair</strong>
@@ -122,152 +86,104 @@
 
     <section class="section">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head" data-reveal>
           <span class="eyebrow">Beliebte Leistungen</span>
           <h2>Die häufigsten Smartphone Reparaturen.</h2>
           <p>Jede Leistung hat eine eigene Unterseite. So finden Besucher schneller die passende Reparatur und Google versteht den Inhalt besser.</p>
         </div>
         <div class="service-grid">
-          <article class="service-card">
-            <div class="service-icon">📱</div>
-            <h3>Display Reparatur</h3>
-            <p>Für gesprungene, schwarze oder nicht mehr reagierende Displays.</p>
-            <ul>
-              <li>Touchscreen reagiert nicht</li>
-              <li>Glas gebrochen</li>
-              <li>Bildfehler oder Streifen</li>
-            </ul>
-            <p style="margin-top:16px;"><a class="button-link" href="display-reparatur.html">Mehr zur Display Reparatur →</a></p>
-          </article>
-
-          <article class="service-card">
-            <div class="service-icon">🔋</div>
-            <h3>Akku Wechsel</h3>
-            <p>Wenn dein Smartphone schnell leer ist oder unerwartet ausgeht.</p>
-            <ul>
-              <li>Akku hält kaum noch</li>
-              <li>Gerät wird schnell warm</li>
-              <li>Unzuverlässige Laufzeit</li>
-            </ul>
-            <p style="margin-top:16px;"><a class="button-link" href="akku-wechsel.html">Mehr zum Akku Wechsel →</a></p>
-          </article>
-
-          <article class="service-card">
-            <div class="service-icon">🔌</div>
-            <h3>Ladebuchse Reparatur</h3>
-            <p>Wenn das Ladekabel wackelt oder das Smartphone nicht mehr lädt.</p>
-            <ul>
-              <li>Laden nur in bestimmter Position</li>
-              <li>Anschluss locker oder verschmutzt</li>
-              <li>Keine stabile Verbindung</li>
-            </ul>
-            <p style="margin-top:16px;"><a class="button-link" href="ladebuchse-reparatur.html">Mehr zur Ladebuchse →</a></p>
-          </article>
+          <article class="service-card" data-reveal><div class="service-icon">📱</div><h3>Display Reparatur</h3><p>Für gesprungene, schwarze oder nicht mehr reagierende Displays.</p><ul><li>Touchscreen reagiert nicht</li><li>Glas gebrochen</li><li>Bildfehler oder Streifen</li></ul><p style="margin-top:16px;"><a class="button-link" href="display-reparatur.html">Mehr zur Display Reparatur →</a></p></article>
+          <article class="service-card" data-reveal><div class="service-icon">🔋</div><h3>Akku Wechsel</h3><p>Wenn dein Smartphone schnell leer ist oder unerwartet ausgeht.</p><ul><li>Akku hält kaum noch</li><li>Gerät wird schnell warm</li><li>Unzuverlässige Laufzeit</li></ul><p style="margin-top:16px;"><a class="button-link" href="akku-wechsel.html">Mehr zum Akku Wechsel →</a></p></article>
+          <article class="service-card" data-reveal><div class="service-icon">🔌</div><h3>Ladebuchse Reparatur</h3><p>Wenn das Ladekabel wackelt oder das Smartphone nicht mehr lädt.</p><ul><li>Laden nur in bestimmter Position</li><li>Anschluss locker oder verschmutzt</li><li>Keine stabile Verbindung</li></ul><p style="margin-top:16px;"><a class="button-link" href="ladebuchse-reparatur.html">Mehr zur Ladebuchse →</a></p></article>
         </div>
       </div>
     </section>
 
     <section class="section-tight">
       <div class="container split-grid">
-        <div class="feature-panel">
+        <div class="feature-panel" data-reveal>
           <span class="eyebrow">Ablauf</span>
           <h2>So läuft ein Termin ab.</h2>
           <p>Kein kompliziertes Formular und kein anonymer Ablauf. Du meldest dich kurz, beschreibst den Fehler und bekommst eine ehrliche Einschätzung.</p>
-          <ul>
-            <li>Kontaktaufnahme per WhatsApp</li>
-            <li>Kurze Fehlerbeschreibung und Gerätemodell</li>
-            <li>Terminvereinbarung</li>
-            <li>Reparatur nach Absprache</li>
-          </ul>
+          <ul><li>Kontaktaufnahme per WhatsApp</li><li>Kurze Fehlerbeschreibung und Gerätemodell</li><li>Terminvereinbarung</li><li>Reparatur nach Absprache</li></ul>
         </div>
-
         <div class="card-grid">
-          <article class="process-card">
-            <h3>1. Anfrage senden</h3>
-            <p>Am besten direkt mit Modell und kurzem Fehlerbild.</p>
-          </article>
-          <article class="process-card">
-            <h3>2. Einschätzung erhalten</h3>
-            <p>Du bekommst eine transparente Rückmeldung, ob und wie die Reparatur sinnvoll ist.</p>
-          </article>
-          <article class="process-card">
-            <h3>3. Termin vereinbaren</h3>
-            <p>TH Repair arbeitet ausschließlich nach Termin – ohne unnötige Wartezeit.</p>
-          </article>
-          <article class="process-card">
-            <h3>4. Smartphone reparieren lassen</h3>
-            <p>Saubere Arbeit, persönliche Kommunikation und faire Preise.</p>
-          </article>
+          <article class="process-card" data-reveal><h3>1. Anfrage senden</h3><p>Am besten direkt mit Modell und kurzem Fehlerbild.</p></article>
+          <article class="process-card" data-reveal><h3>2. Einschätzung erhalten</h3><p>Du bekommst eine transparente Rückmeldung, ob und wie die Reparatur sinnvoll ist.</p></article>
+          <article class="process-card" data-reveal><h3>3. Termin vereinbaren</h3><p>TH Repair arbeitet ausschließlich nach Termin – ohne unnötige Wartezeit.</p></article>
+          <article class="process-card" data-reveal><h3>4. Smartphone reparieren lassen</h3><p>Saubere Arbeit, persönliche Kommunikation und faire Preise.</p></article>
         </div>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Servicegebiet</span>
-          <h2>Für Vreden und Umgebung.</h2>
-          <p>Die Website ist lokal auf Vreden ausgerichtet. Gleichzeitig spricht sie auch Besucher aus dem Umkreis von etwa 20 Kilometern an.</p>
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">Preise &amp; Servicegebiet</span>
+          <h2>Faire Preise und lokaler Fokus.</h2>
+          <p>Die Website ist lokal auf Vreden ausgerichtet und spricht gleichzeitig Besucher aus dem Umkreis von etwa 20 Kilometern an.</p>
         </div>
-
-        <div class="area-grid">
-          <article class="local-card">
-            <h3>Handyreparatur in Vreden</h3>
-            <p>TH Repair ist lokal in Vreden verankert und richtet sich an Kundinnen und Kunden, die einen direkten Ansprechpartner suchen.</p>
+        <div class="feature-grid">
+          <article class="price-card" data-reveal>
+            <span class="price-badge">Einfach anpassbar</span>
+            <h3>Preisliste</h3>
+            <p>Die Preise werden zentral aus einer Datei geladen. Änderungen sind später besonders einfach.</p>
+            <div data-price-table></div>
+            <div class="edit-hint"><strong>Tipp:</strong> Ändere nur die Datei <code>preise.js</code>, wenn du Preise anpassen möchtest.</div>
           </article>
-          <article class="local-card">
-            <h3>Umgebung bis ca. 20 km</h3>
-            <p>Auch für Interessenten aus der Umgebung ist die Seite optimiert, zum Beispiel aus Ahaus, Stadtlohn, Südlohn, Oeding oder Winterswijk.</p>
+          <article class="feature-panel" data-reveal>
+            <span class="eyebrow">Vreden &amp; Umgebung</span>
+            <h3>Für Vreden und Umkreis ca. 20 km.</h3>
+            <ul><li>Vreden</li><li>Ahaus</li><li>Stadtlohn</li><li>Südlohn</li><li>Oeding</li><li>Winterswijk</li></ul>
+            <p class="muted">Auch Besucher aus nahegelegenen Orten finden auf der Seite sofort den lokalen Bezug.</p>
+            <p><a class="btn btn-secondary" href="kontakt.html">Anfahrt ansehen</a></p>
           </article>
         </div>
-        <p class="local-note">Hinweis: Das Servicegebiet ist als grobe Orientierung formuliert und kann je nach Anfrage flexibel gehandhabt werden.</p>
       </div>
     </section>
 
     <section class="section-tight">
-      <div class="container contact-wrap">
-        <article class="contact-card">
-          <span class="eyebrow">Über TH Repair</span>
-          <h3>Persönlich statt anonym.</h3>
-          <p>Ich bin Tjerk Heinenbernd und kümmere mich mit Präzision, Verlässlichkeit und einer ehrlichen Einschätzung um dein Smartphone. Der Fokus liegt auf sauberer Arbeit und klarer Kommunikation.</p>
-        </article>
-
-        <article class="contact-card">
-          <span class="eyebrow">Kontakt</span>
-          <h3>Termin direkt anfragen</h3>
-          <p>Am schnellsten erreichst du TH Repair per WhatsApp. Alternativ findest du auch Geräte und Angebote über Kleinanzeigen.</p>
-          <div class="contact-actions">
-            <a class="btn btn-primary" href="https://wa.me/491601845755?text=Hallo%20ich%20interessiere%20mich%20für%20eine%20Smartphone-Reparatur" target="_blank" rel="noopener noreferrer">WhatsApp schreiben</a>
-            <a class="btn btn-secondary" href="https://www.kleinanzeigen.de/s-bestandsliste.html?userId=137900326" target="_blank" rel="noopener noreferrer">Kleinanzeigen</a>
-          </div>
-        </article>
+      <div class="container contact-card" data-reveal>
+        <span class="eyebrow">Mehr Funktionen</span>
+        <h2>Noch mehr auf deiner Website</h2>
+        <p>Zusätzlich gibt es jetzt eine einfach anpassbare Preisseite, Google-Maps-Anfahrt mit Einwilligung und eine Tarife-Seite mit kleinem CHECK24-Badge und Vergleichsrechnern.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="preise.html">Zur Preisliste</a>
+          <a class="btn btn-secondary" href="tarife.html">Zu den Tarifen</a>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>© <span data-year></span> TH Repair · Smartphone Reparatur in Vreden</p>
+      <p>© <span data-year></span> TH Repair</p>
       <div class="footer-links">
         <a href="reparaturen.html">Reparaturen</a>
+        <a href="preise.html">Preise</a>
+        <a href="tarife.html">Tarife</a>
         <a href="kontakt.html">Kontakt</a>
         <a href="impressum.html">Impressum</a>
         <a href="datenschutz.html">Datenschutz</a>
       </div>
+      <div class="footer-badges">
+        <a class="footer-badge" href="tarife.html" aria-label="CHECK24 Tarife öffnen">
+          <img src="https://a.check24.net/misc/view.php?pid=1162505&aid=164&cat=7" alt="CHECK24 Tarifcheck Badge" width="34" height="34" loading="lazy">
+          <span>Tarifcheck</span>
+        </a>
+      </div>
+      <p class="footer-note">Externe Inhalte wie Google Maps und CHECK24-Rechner werden erst nach Zustimmung im Datenschutz-Hinweis geladen.</p>
     </div>
   </footer>
-
   <div class="cookie-banner" data-cookie-banner hidden>
     <h3>Datenschutz-Hinweis</h3>
-    <p>Diese Website verwendet nur technisch notwendige Funktionen. Es werden keine Analyse- oder Marketing-Cookies geladen. Du kannst den Hinweis bestätigen oder ablehnen.</p>
+    <p>Mit „Einverstanden“ dürfen externe Inhalte wie Google Maps und CHECK24-Vergleichsrechner geladen werden. Mit „Ablehnen“ bleiben diese Inhalte blockiert. Deine Auswahl wird lokal im Browser gespeichert.</p>
     <div class="cookie-actions">
       <button class="btn btn-primary" type="button" data-cookie-accept>Einverstanden</button>
       <button class="btn btn-secondary" type="button" data-cookie-decline>Ablehnen</button>
-      <a class="button-link" href="datenschutz.html">Zur Datenschutzerklärung</a>
+      <a class="button-link" href="datenschutz.html">Datenschutz</a>
     </div>
-    <p class="cookie-mini">Die Auswahl wird lokal in deinem Browser gespeichert.</p>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>

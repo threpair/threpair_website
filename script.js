@@ -22,30 +22,131 @@ document.addEventListener('DOMContentLoaded', () => {
     if (cookieBanner) cookieBanner.hidden = false;
   };
 
-  const saveConsent = (value) => {
-    localStorage.setItem(consentKey, value);
+  const storeConsent = (value) => {
+    try {
+      localStorage.setItem(consentKey, value);
+    } catch (error) {
+      console.warn('Consent konnte nicht gespeichert werden.', error);
+    }
+    if (value === 'accepted') {
+      activateThirdPartyEmbeds();
+    }
     hideBanner();
   };
 
+  const getConsent = () => {
+    try {
+      return localStorage.getItem(consentKey);
+    } catch (error) {
+      return null;
+    }
+  };
+
   if (cookieBanner) {
-    const storedConsent = localStorage.getItem(consentKey);
+    const storedConsent = getConsent();
     if (!storedConsent) {
       showBanner();
     } else {
       hideBanner();
+      if (storedConsent === 'accepted') {
+        activateThirdPartyEmbeds();
+      }
     }
   }
 
   if (acceptButton) {
-    acceptButton.addEventListener('click', () => saveConsent('accepted'));
+    acceptButton.addEventListener('click', () => storeConsent('accepted'));
   }
 
   if (declineButton) {
-    declineButton.addEventListener('click', () => saveConsent('declined'));
+    declineButton.addEventListener('click', () => storeConsent('declined'));
+  }
+
+  document.querySelectorAll('[data-open-consent]').forEach((button) => {
+    button.addEventListener('click', () => showBanner());
+  });
+
+  function activateThirdPartyEmbeds() {
+    document.querySelectorAll('[data-consent-embed]').forEach((box) => {
+      if (box.dataset.loaded === 'true') return;
+      const type = box.dataset.embedType || 'iframe';
+
+      if (type === 'iframe') {
+        const iframe = document.createElement('iframe');
+        iframe.loading = 'lazy';
+        iframe.referrerPolicy = 'no-referrer-when-downgrade';
+        iframe.src = box.dataset.src;
+        iframe.title = box.dataset.title || 'Externer Inhalt';
+        iframe.allowFullscreen = true;
+        box.innerHTML = '';
+        box.classList.add('map-frame');
+        box.appendChild(iframe);
+      } else if (type === 'script-widget') {
+        const container = document.createElement('div');
+        const containerId = box.dataset.widgetId;
+        if (containerId) container.id = containerId;
+        container.style.width = '100%';
+        box.innerHTML = '';
+        box.appendChild(container);
+
+        const script = document.createElement('script');
+        script.src = box.dataset.scriptSrc;
+        script.async = true;
+        box.appendChild(script);
+      }
+
+      box.dataset.loaded = 'true';
+    });
+  }
+
+  const revealItems = document.querySelectorAll('[data-reveal]');
+  if ('IntersectionObserver' in window && revealItems.length) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.16 });
+    revealItems.forEach((item) => observer.observe(item));
+  } else {
+    revealItems.forEach((item) => item.classList.add('visible'));
   }
 
   const yearElement = document.querySelector('[data-year]');
   if (yearElement) {
     yearElement.textContent = new Date().getFullYear();
+  }
+
+  const priceTargets = document.querySelectorAll('[data-price-table]');
+  if (priceTargets.length && Array.isArray(window.THREPAIR_PRICES)) {
+    priceTargets.forEach((target) => renderPriceTable(target, window.THREPAIR_PRICES));
+  }
+
+  function renderPriceTable(target, items) {
+    const rows = items.map(item => `
+      <tr>
+        <td>
+          <strong>${item.name}</strong><br>
+          <small>${item.note}</small>
+        </td>
+        <td><span class="price-chip">${item.category}</span></td>
+        <td>${item.price}</td>
+      </tr>
+    `).join('');
+
+    target.innerHTML = `
+      <table class="price-table" aria-label="Preisliste">
+        <thead>
+          <tr>
+            <th>Leistung</th>
+            <th>Typ</th>
+            <th>Preis</th>
+          </tr>
+        </thead>
+        <tbody>${rows}</tbody>
+      </table>
+    `;
   }
 });

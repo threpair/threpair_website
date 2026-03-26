@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reparaturen – TH Repair in Vreden</title>
-  <meta name="description" content="Übersicht aller Smartphone Reparaturen von TH Repair in Vreden.">
+  <title>Preisliste – TH Repair in Vreden</title>
+  <meta name="description" content="Einfache, anpassbare Preisliste für Smartphone Reparaturen in Vreden.">
   <meta name="robots" content="index,follow">
   <link rel="stylesheet" href="styles.css">
+  <script src="preise.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
@@ -14,7 +15,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="index.html" aria-label="TH Repair Startseite"><span class="brand-mark">🔧</span><span>TH Repair<small>Smartphone Reparatur in Vreden</small></span></a>
-      <nav class="nav" data-nav aria-label="Hauptnavigation"><a class="" href="index.html">Start</a><a class="active" href="reparaturen.html">Reparaturen</a><a class="" href="preise.html">Preise</a><a class="" href="tarife.html">Tarife</a><a class="" href="kontakt.html">Kontakt</a><a class="" href="impressum.html">Impressum</a><a class="" href="datenschutz.html">Datenschutz</a></nav>
+      <nav class="nav" data-nav aria-label="Hauptnavigation"><a class="" href="index.html">Start</a><a class="" href="reparaturen.html">Reparaturen</a><a class="active" href="preise.html">Preise</a><a class="" href="tarife.html">Tarife</a><a class="" href="kontakt.html">Kontakt</a><a class="" href="impressum.html">Impressum</a><a class="" href="datenschutz.html">Datenschutz</a></nav>
       <div class="header-actions">
         <a class="btn btn-secondary" href="preise.html">Preisliste</a>
         <a class="btn btn-primary" href="https://wa.me/491601845755?text=Hallo%20ich%20möchte%20einen%20Termin%20vereinbaren" target="_blank" rel="noopener noreferrer">WhatsApp</a>
@@ -24,14 +25,22 @@
   </header>
 
   <main id="main">
-    <section class="page-hero"><div class="container"><div class="page-hero-card" data-reveal><div class="breadcrumbs"><a href="index.html">Start</a> / <span>Reparaturen</span></div><span class="eyebrow">Leistungsübersicht</span><h1>Smartphone Reparaturen</h1><p>Hier findest du die wichtigsten Reparaturen mit eigener Unterseite – klar strukturiert und lokal auf Vreden ausgerichtet.</p></div></div></section>
-    <section class="section-tight"><div class="container service-grid">
-      <article class="service-card" data-reveal><div class="service-icon">📱</div><h3>Display Reparatur</h3><p>Bei Sprung, Streifen, Touchfehlern oder schwarzem Bildschirm.</p><p><a class="button-link" href="display-reparatur.html">Mehr erfahren →</a></p></article>
-      <article class="service-card" data-reveal><div class="service-icon">🔋</div><h3>Akku Wechsel</h3><p>Wenn dein Akku schnell leer wird oder das Gerät unzuverlässig läuft.</p><p><a class="button-link" href="akku-wechsel.html">Mehr erfahren →</a></p></article>
-      <article class="service-card" data-reveal><div class="service-icon">🔌</div><h3>Ladebuchse Reparatur</h3><p>Wenn Laden nur noch mit Wackelkontakt funktioniert.</p><p><a class="button-link" href="ladebuchse-reparatur.html">Mehr erfahren →</a></p></article>
-      <article class="service-card" data-reveal><div class="service-icon">📷</div><h3>Kamera Reparatur</h3><p>Bei unscharfen Bildern, Fokusproblemen oder defekter Kamera.</p><p><a class="button-link" href="kamera-reparatur.html">Mehr erfahren →</a></p></article>
-      <article class="service-card" data-reveal><div class="service-icon">🪟</div><h3>Backcover / Rückseite</h3><p>Wenn die Rückseite gebrochen oder optisch stark beschädigt ist.</p><p><a class="button-link" href="backcover-reparatur.html">Mehr erfahren →</a></p></article>
-      <article class="service-card" data-reveal><div class="service-icon">💶</div><h3>Preisliste</h3><p>Alle Preise zentral und leicht anpassbar in einer Datei.</p><p><a class="button-link" href="preise.html">Zur Preisliste →</a></p></article>
+    <section class="page-hero"><div class="container"><div class="page-hero-card" data-reveal><div class="breadcrumbs"><a href="index.html">Start</a> / <span>Preisliste</span></div><span class="eyebrow">Leicht anpassbar</span><h1>Preisliste für Reparaturen</h1><p>Die Liste wird automatisch aus der Datei <code>preise.js</code> geladen. So kannst du Preise künftig schnell anpassen, ohne jede HTML-Seite zu ändern.</p></div></div></section>
+    <section class="section-tight"><div class="container feature-grid">
+      <article class="price-card" data-reveal>
+        <h3>Aktuelle Preise</h3>
+        <div data-price-table></div>
+      </article>
+      <article class="price-card" data-reveal>
+        <span class="price-badge">Bearbeiten in 1 Datei</span>
+        <h3>So passt du Preise später an</h3>
+        <ol>
+          <li>Öffne die Datei <code>preise.js</code>.</li>
+          <li>Ändere nur die Texte bei <code>name</code>, <code>category</code>, <code>price</code> oder <code>note</code>.</li>
+          <li>Speichern, hochladen, fertig.</li>
+        </ol>
+        <div class="callout">Die Preisliste eignet sich gut für Ab-Preise und flexible Modellpreise. Du kannst später auch weitere Leistungen hinzufügen.</div>
+      </article>
     </div></section>
   </main>
 
