@@ -3,61 +3,162 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Preisliste – TH Repair in Vreden</title>
-  <meta name="description" content="Einfache, anpassbare Preisliste für Smartphone Reparaturen in Vreden.">
-  <meta name="robots" content="index,follow">
+  <title>Preise für iPhone & Samsung Reparaturen – TH Repair Vreden</title>
+  <meta name="description" content="Modellbasierte Reparaturpreise für iPhone und Samsung in Vreden. Display, Akku, Backcover, Ladebuchse, Kamera und Reinigung. Original oder hochwertiger Nachbau.">
   <link rel="stylesheet" href="styles.css">
-  <script src="preise.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Zum Inhalt springen</a>
-
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="TH Repair Startseite"><span class="brand-mark">🔧</span><span>TH Repair<small>Smartphone Reparatur in Vreden</small></span></a>
-      <nav class="nav" data-nav aria-label="Hauptnavigation"><a class="" href="index.html">Start</a><a class="" href="reparaturen.html">Reparaturen</a><a class="active" href="preise.html">Preise</a><a class="" href="tarife.html">Tarife</a><a class="" href="kontakt.html">Kontakt</a><a class="" href="impressum.html">Impressum</a><a class="" href="datenschutz.html">Datenschutz</a></nav>
-      <div class="header-actions">
-        <a class="btn btn-secondary" href="preise.html">Preisliste</a>
-        <a class="btn btn-primary" href="https://wa.me/491601845755?text=Hallo%20ich%20möchte%20einen%20Termin%20vereinbaren" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-        <button class="mobile-toggle" type="button" data-mobile-toggle aria-expanded="false" aria-label="Menü öffnen">☰</button>
+<header class="site-header">
+  <div class="top-contact-bar">
+    <div class="container top-contact-inner">
+      <span>Smartphone-Reparatur in Vreden · WhatsApp & Telefon: <a href="tel:+4925649392860">02564 9392860</a></span>
+      <div class="top-links">
+        <a href="https://wa.me/4925649392860?text=Hallo%20ich%20m%C3%B6chte%20einen%20Preis%20anfragen">WhatsApp</a>
+        <a href="https://www.kleinanzeigen.de/s-bestandsliste.html?userId=137900326" target="_blank" rel="noopener noreferrer">Kleinanzeigen</a>
       </div>
     </div>
-  </header>
+  </div>
+  <div class="container header-row">
+    <a class="brand" href="index.html"><span class="brand-badge">🔧</span><span>TH Repair</span></a>
+    <button class="nav-toggle" type="button" data-nav-toggle>Menü</button>
+    <nav class="nav" data-nav>
+      <a href="index.html">Start</a>
+      <a href="reparaturen.html">Reparaturen</a>
+      <a href="preise.html">Preise</a>
+      <a href="tarife.html">Tarifrechner</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a class="cta-mini" href="https://wa.me/4925649392860?text=Hallo%20ich%20m%C3%B6chte%20einen%20Preis%20anfragen">WhatsApp</a>
+    </nav>
+  </div>
+</header>
 
-  <main id="main">
-    <section class="page-hero"><div class="container"><div class="page-hero-card" data-reveal><div class="breadcrumbs"><a href="index.html">Start</a> / <span>Preisliste</span></div><span class="eyebrow">Orientierungspreise</span><h1>Preise für Smartphone-Reparaturen</h1><p>Hier findest du unsere aktuellen Orientierungspreise für häufige Reparaturen. Der genaue Preis richtet sich nach Modell, Teilequalität und Schadenbild.</p></div></div></section>
-    <section class="section-tight"><div class="container"><article class="price-card" data-reveal><span class="price-badge">Aktuelle Übersicht</span><h3>Orientierungspreise</h3><div data-price-table></div><div class="callout">Für ein genaues Angebot schreib uns einfach kurz per WhatsApp mit deinem Modell und dem Schaden.</div></article></div></section>
-  </main>
+<section class="subhero-premium">
+  <div class="container">
+    <span class="kicker">Modellbasierte Preise</span>
+    <h1 style="font-size:clamp(40px,7vw,70px);letter-spacing:-.07em;line-height:.95;margin:12px 0 12px">Preisliste, die direkt verkauft.</h1>
+    <p class="section-lead">iPhone und Samsung Preise auf einen Blick. Kunden sehen sofort, was Display, Akku, Backcover, Ladebuchse oder Kamera kostet – inklusive Erklärung zu Original-Ersatzteilen, Soft OLED, Akkus mit TI-Chip, Garantie und Reinigung.</p>
+    <div class="quick-top-links">
+      <a class="btn btn-success" href="https://wa.me/4925649392860?text=Hallo%20ich%20m%C3%B6chte%20einen%20Preis%20anfragen">Preis per WhatsApp anfragen</a>
+      <a class="btn btn-outline" href="tel:+4925649392860">02564 9392860</a>
+      <a class="btn btn-outline" href="https://www.kleinanzeigen.de/s-bestandsliste.html?userId=137900326" target="_blank" rel="noopener noreferrer">Kleinanzeigen</a>
+    </div>
+  </div>
+</section>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© <span data-year></span> TH Repair</p>
-      <div class="footer-links">
+<section class="section">
+  <div class="container price-app" data-price-app>
+    <div class="price-summary" data-price-summary></div>
+
+    <div class="configurator">
+      <aside class="sidebar-panel glass-panel reveal">
+        <span class="badge">Modell wählen</span>
+        <h2 style="font-size:32px;letter-spacing:-.05em;margin:12px 0 10px">iPhone, Samsung, FE, Pro, Max, Mini, Ultra</h2>
+        <p class="muted">Anderes Modell? Einfach per WhatsApp anfragen. Die Reinigung von Lautsprecher, Mikrofon und Ladebuchse kostet immer 35 €.</p>
+
+        <div class="brand-tabs" data-brand-tabs></div>
+
+        <label class="search-shell" aria-label="Modell suchen">
+          <span>🔎</span>
+          <input type="search" placeholder="Modell suchen … z. B. iPhone 12 Pro" data-model-search>
+        </label>
+
+        <div class="model-grid" data-model-grid></div>
+      </aside>
+
+      <div data-model-detail class="reveal"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-soft">
+  <div class="container">
+    <div class="grid grid-3">
+      <article class="tile reveal">
+        <span class="badge">Original</span>
+        <h3>12 Monate Garantie</h3>
+        <p class="muted">Original-Ersatzteile sind teurer, bieten aber die größte Nähe zum Original. Bei Apple lassen sich Original-Displays ab iOS 18 je nach Gerät kalibrieren.</p>
+      </article>
+      <article class="tile reveal">
+        <span class="badge">Nachbau</span>
+        <h3>6 Monate Garantie</h3>
+        <p class="muted">Premium-Nachbau wie Soft OLED oder hochwertige Akkus mit TI-Chip sind günstiger. Es kann ein Hinweis erscheinen, dass kein Original-Produkt verbaut ist. Farben oder Touch können leicht abweichen.</p>
+      </article>
+      <article class="tile reveal">
+        <span class="badge">Wichtig</span>
+        <h3>Nur auf das ersetzte Bauteil</h3>
+        <p class="muted">Garantie gilt nur auf das ersetzte Bauteil, nicht auf das gesamte Handy. Keine Garantie bei Wasserschäden oder Schäden, für die wir nichts können.</p>
+      </article>
+    </div>
+
+    <div class="callout reveal" style="margin-top:22px">
+      Versicherungsfall? Für einen Kostenvoranschlag berechnen wir 35 € Erstellungsgebühr, die vorher bezahlt werden muss. Versicherungen zahlen in der Regel an den Geschädigten und nicht direkt an uns.
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <strong>TH Repair</strong>
+      <p class="muted">Smartphone-Reparatur in Vreden und Umgebung. Nur nach Termin. Für weitere Modelle einfach per WhatsApp anfragen.</p>
+      <div class="footer-contact-links">
+        <a href="tel:+4925649392860">02564 9392860</a>
+        <a href="https://wa.me/4925649392860?text=Hallo%20ich%20m%C3%B6chte%20einen%20Preis%20anfragen">WhatsApp</a>
+        <a href="https://www.kleinanzeigen.de/s-bestandsliste.html?userId=137900326" target="_blank" rel="noopener noreferrer">Kleinanzeigen</a>
+      </div>
+      <div class="check24-mini">
+        <a href="https://a.check24.net/misc/click.php?pid=1162505&aid=164&deep=handytarife&cat=7" target="_blank" rel="noopener noreferrer"><img src="https://a.check24.net/misc/view.php?pid=1162505&aid=164&cat=7" alt="CHECK24 Tarifcheck Badge"></a>
+        <a href="tarife.html" class="muted">Zu den Tarifrechnern</a>
+      </div>
+    </div>
+    <div>
+      <strong>Navigation</strong>
+      <div class="card-list" style="margin-top:12px">
         <a href="reparaturen.html">Reparaturen</a>
         <a href="preise.html">Preise</a>
-        <a href="tarife.html">Tarife</a>
+        <a href="tarife.html">Tarifrechner</a>
         <a href="kontakt.html">Kontakt</a>
+      </div>
+    </div>
+    <div>
+      <strong>Rechtliches</strong>
+      <div class="card-list" style="margin-top:12px">
         <a href="impressum.html">Impressum</a>
         <a href="datenschutz.html">Datenschutz</a>
       </div>
-      <div class="footer-badges">
-        <a class="footer-badge" href="tarife.html" aria-label="CHECK24 Tarife öffnen">
-          <img src="https://a.check24.net/misc/view.php?pid=1162505&aid=164&cat=7" alt="CHECK24 Tarifcheck Badge" width="34" height="34" loading="lazy">
-          <span>Tarifcheck</span>
-        </a>
-      </div>
-      <p class="footer-note">Externe Inhalte wie Google Maps und CHECK24-Rechner werden erst nach Zustimmung im Datenschutz-Hinweis geladen.</p>
-    </div>
-  </footer>
-  <div class="cookie-banner" data-cookie-banner hidden>
-    <h3>Datenschutz-Hinweis</h3>
-    <p>Mit „Einverstanden“ dürfen externe Inhalte wie Google Maps und CHECK24-Vergleichsrechner geladen werden. Mit „Ablehnen“ bleiben diese Inhalte blockiert. Deine Auswahl wird lokal im Browser gespeichert.</p>
-    <div class="cookie-actions">
-      <button class="btn btn-primary" type="button" data-cookie-accept>Einverstanden</button>
-      <button class="btn btn-secondary" type="button" data-cookie-decline>Ablehnen</button>
-      <a class="button-link" href="datenschutz.html">Datenschutz</a>
     </div>
   </div>
-  <script src="script.js"></script>
+</footer>
+
+<div class="cookie-banner" data-cookie-banner>
+  <div class="cookie-card">
+    <strong>Externe Inhalte & Datenschutz</strong>
+    <p>Für Google Maps und CHECK24-Rechner benötigen wir Ihre Einwilligung zum Laden externer Inhalte. Sie können zustimmen oder ablehnen. Ihre Auswahl wird lokal im Browser gespeichert.</p>
+    <div class="cookie-actions">
+      <button class="btn btn-primary" type="button" data-accept>Einverstanden</button>
+      <button class="btn btn-outline" type="button" data-decline>Ablehnen</button>
+      <a class="btn btn-outline" href="datenschutz.html">Mehr erfahren</a>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" data-price-modal>
+  <div class="modal-card">
+    <div class="modal-head">
+      <div>
+        <span class="badge">Info</span>
+        <h3 data-modal-title style="font-size:30px;letter-spacing:-.05em;margin:10px 0 0">Hinweis</h3>
+      </div>
+      <button class="modal-close" type="button" data-close-modal>&times;</button>
+    </div>
+    <p data-modal-body class="muted" style="margin-top:14px;font-size:17px;line-height:1.7"></p>
+    <div style="margin-top:18px">
+      <button class="btn btn-primary" type="button" data-close-modal>Verstanden</button>
+    </div>
+  </div>
+</div>
+
+<script src="preise.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
