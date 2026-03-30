@@ -7,6 +7,31 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalTitle = document.getElementById('modalTitle');
   const modalText = document.getElementById('modalText');
   const modalClose = document.getElementById('modalClose');
+
+  document.querySelectorAll('.header .container').forEach(headerContainer => {
+    const nav = headerContainer.querySelector('.nav');
+    if (!nav) return;
+
+    let toggleBtn = headerContainer.querySelector('.nav-toggle');
+    if (!toggleBtn) {
+      toggleBtn = document.createElement('button');
+      toggleBtn.type = 'button';
+      toggleBtn.className = 'nav-toggle';
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      toggleBtn.textContent = 'Menü';
+      nav.before(toggleBtn);
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      const open = headerContainer.classList.toggle('nav-open');
+      toggleBtn.setAttribute('aria-expanded', String(open));
+    });
+
+    nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      headerContainer.classList.remove('nav-open');
+      toggleBtn.setAttribute('aria-expanded', 'false');
+    }));
+  });
   if (brand && model && result && typeof PRICE_DATA !== 'undefined') {
     const money = v => typeof v === 'number' ? `${v} €` : v;
     const infoButton = key => `<button class="link-info" type="button" data-info="${key}">Hinweis</button>`;
@@ -56,6 +81,60 @@ document.addEventListener('DOMContentLoaded', () => {
     model.addEventListener('change', render);
     search?.addEventListener('input', fillModels);
   }
+
+  const trackerForm = document.getElementById('trackerForm');
+  const trackingCode = document.getElementById('trackingCode');
+  const trackerTitle = document.getElementById('trackerTitle');
+  const trackerSummary = document.getElementById('trackerSummary');
+  const trackerProgress = document.getElementById('trackerProgress');
+  const trackerTimestamp = document.getElementById('trackerTimestamp');
+
+  if (trackerForm && trackingCode && trackerTitle && trackerSummary && trackerProgress && trackerTimestamp) {
+    const steps = [
+      'Auftrag eingegangen',
+      'Gerät in Diagnose',
+      'Ersatzteil verfügbar',
+      'Reparatur läuft',
+      'Qualitätscheck',
+      'Abholbereit'
+    ];
+
+    const codeHash = value => [...value].reduce((acc, ch) => acc + ch.charCodeAt(0), 0);
+
+    function renderTracker(code) {
+      const cleanCode = code.trim().toUpperCase();
+      if (!cleanCode) return;
+      const now = new Date();
+      const tick = Math.floor(now.getTime() / 15000);
+      const activeIndex = (codeHash(cleanCode) + tick) % steps.length;
+
+      trackerTitle.textContent = `Auftrag ${cleanCode}`;
+      trackerSummary.textContent = `Aktueller Schritt: ${steps[activeIndex]}`;
+      trackerTimestamp.textContent = `Letztes Live-Update: ${now.toLocaleString('de-DE')}`;
+
+      trackerProgress.innerHTML = steps.map((step, index) => {
+        const state = index < activeIndex ? 'done' : index === activeIndex ? 'active' : 'todo';
+        const label = state === 'done' ? 'Erledigt' : state === 'active' ? 'Läuft' : 'Offen';
+        return `<div class="tracker-step ${state}"><span class="tracker-dot"></span><div><strong>${step}</strong><p class="small">${label}</p></div></div>`;
+      }).join('');
+    }
+
+    trackerForm.addEventListener('submit', e => {
+      e.preventDefault();
+      renderTracker(trackingCode.value);
+    });
+
+    const fromHash = decodeURIComponent((location.hash || '').replace('#', ''));
+    if (fromHash) {
+      trackingCode.value = fromHash;
+      renderTracker(fromHash);
+    }
+
+    setInterval(() => {
+      if (trackingCode.value.trim()) renderTracker(trackingCode.value);
+    }, 10000);
+  }
+
   if (modalClose && modal) {
     modalClose.addEventListener('click', () => modal.classList.remove('open'));
     modal.addEventListener('click', e => { if (e.target === modal) modal.classList.remove('open'); });

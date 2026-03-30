@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CHECK24 Hinweis | TH Repair</title>
-  <meta name="description" content="Partnerhinweis zu CHECK24.">
+  <title>Live-Tracker | TH Repair</title>
+  <meta name="description" content="Live-Status deiner Reparatur bei TH Repair.">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -13,6 +13,7 @@
     <a href="tel:025649392860">Anrufen</a>
     <a href="https://www.kleinanzeigen.de/s-bestandsliste.html?userId=137900326" target="_blank" rel="noopener">Kleinanzeigen</a>
   </div></div>
+
   <header class="header"><div class="container">
     <a class="brand" href="index.html"><span class="brand-mark">TH</span><span>TH Repair</span></a>
     <nav class="nav">
@@ -31,16 +32,36 @@
     </nav>
     <a class="btn btn-primary" href="https://wa.me/4925649392860">WhatsApp</a>
   </div></header>
+
   <section class="section"><div class="container">
     <span class="kicker">TH Repair</span>
-    <h1>CHECK24 Partnerhinweis</h1>
-    <div class="card"><p><strong>CHECK24.net Partnerprogramm</strong></p><p>Wir nehmen am CHECK24.net Partnerprogramm teil. Auf unseren Seiten werden Werbemittel eingebunden, an denen wir über Transaktionen eine Werbekostenerstattung erhalten können.</p><p>Weitere Informationen zur Datennutzung durch CHECK24.net erhältst du in der Datenschutzerklärung von CHECK24.</p></div>
+    <h1>Live-Tracker</h1>
+    <p class="section-text">Gib deine Auftragsnummer ein und prüfe den aktuellen Reparaturstatus in Echtzeit.</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <form id="trackerForm" class="tracker-form">
+          <label for="trackingCode">Auftragsnummer</label>
+          <input id="trackingCode" name="trackingCode" type="text" placeholder="z. B. THR-2048" required>
+          <button class="btn btn-primary" type="submit">Status laden</button>
+        </form>
+        <p class="small" id="trackerTimestamp">Noch keine Abfrage gestartet.</p>
+      </div>
+
+      <div class="card">
+        <h3 id="trackerTitle">Bitte Auftragsnummer eingeben</h3>
+        <p id="trackerSummary">Der Tracker zeigt sofort, in welchem Schritt deine Reparatur gerade ist.</p>
+        <div class="tracker-progress" id="trackerProgress"></div>
+      </div>
+    </div>
   </div></section>
+
   <footer class="footer"><div class="container footer-grid">
     <div><h3>TH Repair</h3><p>Smartphone Reparatur in Vreden und Umgebung.</p></div>
-    <div><h4>Kontakt</h4><p><a href="tel:025649392860">02564 9392860</a><br><a href="https://wa.me/4925649392860">WhatsApp</a></p></div>
+    <div><h4>Kontakt</h4><p><a href="tel:025649392860">02564 9392860</a><br><a href="https://wa.me/4925649392860">WhatsApp schreiben</a></p></div>
     <div><h4>Rechtliches</h4><p><a href="impressum.html">Impressum</a><br><a href="datenschutz.html">Datenschutz</a></p></div>
   </div></footer>
-  
+
   <script src="script.js"></script>
-</body></html>
+</body>
+</html>
