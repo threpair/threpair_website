@@ -1,0 +1,180 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const mobileToggle = document.querySelector('[data-mobile-toggle]');
+  const nav = document.querySelector('[data-nav]');
+
+  if (mobileToggle && nav) {
+    mobileToggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('open');
+      mobileToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+  }
+
+  const cookieBanner = document.querySelector('[data-cookie-banner]');
+  const acceptButton = document.querySelector('[data-cookie-accept]');
+  const declineButton = document.querySelector('[data-cookie-decline]');
+  const consentKey = 'threpair_cookie_choice';
+  let pendingEmbedBox = null;
+
+  const hideBanner = () => {
+    if (cookieBanner) cookieBanner.hidden = true;
+  };
+
+  const showBanner = () => {
+    if (cookieBanner) cookieBanner.hidden = false;
+  };
+
+  const storeConsent = (value) => {
+    try {
+      localStorage.setItem(consentKey, value);
+    } catch (error) {
+      console.warn('Consent konnte nicht gespeichert werden.', error);
+    }
+    if (value === 'accepted') {
+      if (pendingEmbedBox) {
+        activateEmbed(pendingEmbedBox);
+        pendingEmbedBox = null;
+      } else {
+        activateThirdPartyEmbeds();
+      }
+    }
+    hideBanner();
+  };
+
+  const getConsent = () => {
+    try {
+      return localStorage.getItem(consentKey);
+    } catch (error) {
+      return null;
+    }
+  };
+
+  if (cookieBanner) {
+    const storedConsent = getConsent();
+    if (!storedConsent) {
+      showBanner();
+    } else {
+      hideBanner();
+      if (storedConsent === 'accepted') {
+        activateThirdPartyEmbeds();
+      }
+    }
+  }
+
+  if (acceptButton) {
+    acceptButton.addEventListener('click', () => storeConsent('accepted'));
+  }
+
+  if (declineButton) {
+    declineButton.addEventListener('click', () => storeConsent('declined'));
+  }
+
+  document.querySelectorAll('[data-open-consent]').forEach((button) => {
+    button.addEventListener('click', () => showBanner());
+  });
+
+  function activateEmbed(box) {
+    if (!box || box.dataset.loaded === 'true') return;
+    const type = box.dataset.embedType || 'iframe';
+
+    if (type === 'iframe') {
+      const iframe = document.createElement('iframe');
+      iframe.loading = 'lazy';
+      iframe.referrerPolicy = 'no-referrer-when-downgrade';
+      iframe.src = box.dataset.src;
+      iframe.title = box.dataset.title || 'Externer Inhalt';
+      iframe.allowFullscreen = true;
+      box.innerHTML = '';
+      box.classList.add('map-frame');
+      box.appendChild(iframe);
+    } else if (type === 'script-widget') {
+      const container = document.createElement('div');
+      const containerId = box.dataset.widgetId;
+      if (containerId) container.id = containerId;
+      container.style.width = '100%';
+      box.innerHTML = '';
+      box.appendChild(container);
+
+      const script = document.createElement('script');
+      script.src = box.dataset.scriptSrc;
+      script.async = true;
+      box.appendChild(script);
+    }
+
+    box.dataset.loaded = 'true';
+    box.classList.add('is-loaded');
+  }
+
+  function activateThirdPartyEmbeds() {
+    document.querySelectorAll('[data-consent-embed]').forEach((box) => {
+      if (box.hasAttribute('data-manual-embed')) return;
+      activateEmbed(box);
+    });
+  }
+
+  document.querySelectorAll('[data-load-embed]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const box = button.closest('[data-consent-embed]');
+      if (!box) return;
+
+      const storedConsent = getConsent();
+      if (storedConsent === 'accepted') {
+        activateEmbed(box);
+        return;
+      }
+
+      pendingEmbedBox = box;
+      showBanner();
+    });
+  });
+
+  const revealItems = document.querySelectorAll('[data-reveal]');
+  if ('IntersectionObserver' in window && revealItems.length) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.16 });
+    revealItems.forEach((item) => observer.observe(item));
+  } else {
+    revealItems.forEach((item) => item.classList.add('visible'));
+  }
+
+  const yearElement = document.querySelector('[data-year]');
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+  }
+
+  const priceTargets = document.querySelectorAll('[data-price-table]');
+  if (priceTargets.length && Array.isArray(window.THREPAIR_PRICES)) {
+    priceTargets.forEach((target) => renderPriceTable(target, window.THREPAIR_PRICES));
+  }
+
+  function renderPriceTable(target, items) {
+    const rows = items.map(item => `
+      <tr>
+        <td>
+          <strong>${item.name}</strong><br>
+          <small>${item.note}</small>
+        </td>
+        <td><span class="price-chip">${item.category}</span></td>
+        <td>${item.price}</td>
+      </tr>
+    `).join('');
+
+    target.innerHTML = `
+      <table class="price-table" aria-label="Preisliste">
+        <thead>
+          <tr>
+            <th>Leistung</th>
+            <th>Typ</th>
+            <th>Preis</th>
+          </tr>
+        </thead>
+        <tbody>${rows}</tbody>
+      </table>
+    `;
+  }
+});
