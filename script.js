@@ -11,15 +11,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const cookieBanner = document.querySelector('[data-cookie-banner]');
   const acceptButton = document.querySelector('[data-cookie-accept]');
-  const declineButton = document.querySelector('[data-cookie-decline]');
   const consentKey = 'threpair_cookie_choice';
 
   const hideBanner = () => {
-    if (cookieBanner) cookieBanner.hidden = true;
+    if (cookieBanner) {
+      cookieBanner.hidden = true;
+      cookieBanner.setAttribute('aria-hidden', 'true');
+    }
+    document.body.classList.remove('consent-required');
   };
 
   const showBanner = () => {
-    if (cookieBanner) cookieBanner.hidden = false;
+    if (cookieBanner) {
+      cookieBanner.hidden = false;
+      cookieBanner.setAttribute('aria-hidden', 'false');
+    }
+    document.body.classList.add('consent-required');
   };
 
   const storeConsent = (value) => {
@@ -44,22 +51,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (cookieBanner) {
     const storedConsent = getConsent();
-    if (!storedConsent) {
+    if (storedConsent !== 'accepted') {
       showBanner();
     } else {
       hideBanner();
-      if (storedConsent === 'accepted') {
-        activateThirdPartyEmbeds();
-      }
+      activateThirdPartyEmbeds();
     }
   }
 
   if (acceptButton) {
     acceptButton.addEventListener('click', () => storeConsent('accepted'));
-  }
-
-  if (declineButton) {
-    declineButton.addEventListener('click', () => storeConsent('declined'));
   }
 
   document.querySelectorAll('[data-open-consent]').forEach((button) => {
