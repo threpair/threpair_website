@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const cookieBanner = document.querySelector('[data-cookie-banner]');
-  const acceptButton = document.querySelector('[data-cookie-accept]');
+  const acceptButton = document.querySelector('[data-cookie-accept], [data-accept]');
   const consentKey = 'threpair_cookie_choice';
 
   const hideBanner = () => {
