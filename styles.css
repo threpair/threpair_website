@@ -101,6 +101,7 @@ iframe { border: 0; width: 100%; }
   box-shadow: 0 12px 24px rgba(0, 113, 227, 0.18);
   animation: pulseMark 4s ease-in-out infinite;
 }
+.brand-mark-logo { width: 100%; height: 100%; object-fit: contain; display: block; border-radius: 10px; }
 @keyframes pulseMark {
   0%,100% { transform: translateY(0); box-shadow: 0 12px 24px rgba(0, 113, 227, 0.18); }
   50% { transform: translateY(-2px); box-shadow: 0 16px 28px rgba(0, 113, 227, 0.28); }
